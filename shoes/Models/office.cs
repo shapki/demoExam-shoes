@@ -4,25 +4,25 @@ namespace shoes.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("office")]
-    public partial class office
+    [Table("Office")]
+    public partial class Office
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public office()
+        public Office()
         {
-            orders = new HashSet<orders>();
+            Order = new HashSet<Order>();
         }
 
         [Key]
-        public int idOffice { get; set; }
+        public int IdOffice { get; set; }
 
-        public int postIndex { get; set; }
+        public int PostIndex { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string address { get; set; }
+        public string Address { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orders> orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

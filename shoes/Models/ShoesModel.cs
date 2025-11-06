@@ -9,51 +9,51 @@ namespace shoes.Models
         {
         }
 
-        public virtual DbSet<manufacturer> manufacturer { get; set; }
-        public virtual DbSet<office> office { get; set; }
-        public virtual DbSet<orderProduct> orderProduct { get; set; }
-        public virtual DbSet<orders> orders { get; set; }
-        public virtual DbSet<products> products { get; set; }
-        public virtual DbSet<supplyer> supplyer { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturer { get; set; }
+        public virtual DbSet<Office> Office { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderProduct> OrderProduct { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Supplyer> Supplyer { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<user> user { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<manufacturer>()
-                .HasMany(e => e.products)
-                .WithRequired(e => e.manufacturer)
-                .HasForeignKey(e => e.manufacturerId)
+            modelBuilder.Entity<Manufacturer>()
+                .HasMany(e => e.Product)
+                .WithRequired(e => e.Manufacturer)
+                .HasForeignKey(e => e.ManufacturerId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<office>()
-                .HasMany(e => e.orders)
-                .WithRequired(e => e.office)
-                .HasForeignKey(e => e.officeId)
+            modelBuilder.Entity<Office>()
+                .HasMany(e => e.Order)
+                .WithRequired(e => e.Office)
+                .HasForeignKey(e => e.OfficeId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<orders>()
-                .HasMany(e => e.orderProduct)
-                .WithRequired(e => e.orders)
-                .HasForeignKey(e => e.orderId)
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderProduct)
+                .WithRequired(e => e.Order)
+                .HasForeignKey(e => e.OrderId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<products>()
-                .HasMany(e => e.orderProduct)
-                .WithRequired(e => e.products)
-                .HasForeignKey(e => e.productId)
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.OrderProduct)
+                .WithRequired(e => e.Product)
+                .HasForeignKey(e => e.ProductId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<supplyer>()
-                .HasMany(e => e.products)
-                .WithRequired(e => e.supplyer)
-                .HasForeignKey(e => e.supplyerId)
+            modelBuilder.Entity<Supplyer>()
+                .HasMany(e => e.Product)
+                .WithRequired(e => e.Supplyer)
+                .HasForeignKey(e => e.SupplyerId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<user>()
-                .HasMany(e => e.orders)
-                .WithRequired(e => e.user)
-                .HasForeignKey(e => e.userId)
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Order)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
         }
     }

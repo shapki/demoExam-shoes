@@ -4,23 +4,23 @@ namespace shoes.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("supplyer")]
-    public partial class supplyer
+    [Table("Supplyer")]
+    public partial class Supplyer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public supplyer()
+        public Supplyer()
         {
-            products = new HashSet<products>();
+            Product = new HashSet<Product>();
         }
 
         [Key]
-        public int idSupplyer { get; set; }
+        public int IdSupplyer { get; set; }
 
         [Required]
         [StringLength(70)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<products> products { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

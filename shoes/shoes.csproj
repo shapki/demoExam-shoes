@@ -58,21 +58,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppForms\AuthForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\AuthForm.Designer.cs">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppForms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\manufacturer.cs" />
-    <Compile Include="Models\office.cs" />
-    <Compile Include="Models\orderProduct.cs" />
-    <Compile Include="Models\orders.cs" />
-    <Compile Include="Models\products.cs" />
+    <Compile Include="AppForms\PparentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\PparentForm.Designer.cs">
+      <DependentUpon>PparentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProductUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ProductUserControl.Designer.cs">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\Office.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderProduct.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoesModel.cs" />
-    <Compile Include="Models\supplyer.cs" />
+    <Compile Include="Models\Supplyer.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
-    <Compile Include="Models\user.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -87,6 +105,12 @@
     </Compile>
     <EmbeddedResource Include="AppForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\PparentForm.resx">
+      <DependentUpon>PparentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ProductUserControl.resx">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -119,7 +143,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomControls\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>

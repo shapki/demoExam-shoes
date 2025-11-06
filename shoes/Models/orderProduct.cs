@@ -3,20 +3,20 @@ namespace shoes.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("orderProduct")]
-    public partial class orderProduct
+    [Table("OrderProduct")]
+    public partial class OrderProduct
     {
         [Key]
-        public int idOrderProduct { get; set; }
+        public int IdOrderProduct { get; set; }
 
-        public int orderId { get; set; }
+        public int OrderId { get; set; }
 
-        public int productId { get; set; }
+        public int ProductId { get; set; }
 
-        public int amount { get; set; }
+        public int Amount { get; set; }
 
-        public virtual orders orders { get; set; }
+        public virtual Order Order { get; set; }
 
-        public virtual products products { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

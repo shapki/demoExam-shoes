@@ -1,7 +1,7 @@
 ﻿
 namespace shoes.AppForms
 {
-    partial class MainForm
+    partial class PparentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -55,20 +55,19 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel1.Controls.Add(this.headerSubtitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerTitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerLogoPictureBox);
-            this.formSplitContainer.Panel1.Padding = new System.Windows.Forms.Padding(5);
             // 
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.Controls.Add(this.contentFlowLayoutPanel);
             this.formSplitContainer.Size = new System.Drawing.Size(800, 450);
             this.formSplitContainer.SplitterDistance = 80;
-            this.formSplitContainer.TabIndex = 2;
+            this.formSplitContainer.TabIndex = 1;
             // 
             // headerSubtitleLabel
             // 
             this.headerSubtitleLabel.AutoSize = true;
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
+            this.headerSubtitleLabel.Location = new System.Drawing.Point(87, 41);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
             this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
@@ -78,7 +77,7 @@ namespace shoes.AppForms
             // 
             this.headerTitleLabel.AutoSize = true;
             this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(81, 23);
+            this.headerTitleLabel.Location = new System.Drawing.Point(86, 18);
             this.headerTitleLabel.Name = "headerTitleLabel";
             this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
             this.headerTitleLabel.TabIndex = 1;
@@ -88,16 +87,15 @@ namespace shoes.AppForms
             // 
             this.headerLogoPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.headerLogoPictureBox.Image = global::shoes.Properties.Resources.Icon2;
-            this.headerLogoPictureBox.Location = new System.Drawing.Point(5, 5);
+            this.headerLogoPictureBox.Location = new System.Drawing.Point(0, 0);
             this.headerLogoPictureBox.Name = "headerLogoPictureBox";
-            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 70);
+            this.headerLogoPictureBox.Size = new System.Drawing.Size(80, 80);
             this.headerLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
             // 
             // contentFlowLayoutPanel
             // 
-            this.contentFlowLayoutPanel.AutoScroll = true;
             this.contentFlowLayoutPanel.BackColor = System.Drawing.Color.White;
             this.contentFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentFlowLayoutPanel.Font = new System.Drawing.Font("Times New Roman", 8.25F);
@@ -106,16 +104,14 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Size = new System.Drawing.Size(800, 366);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
-            // MainForm
+            // parentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.formSplitContainer);
-            this.Name = "MainForm";
+            this.Name = "parentForm";
             this.Text = "ООО \"Обувь\"";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.formSplitContainer.Panel1.ResumeLayout(false);
             this.formSplitContainer.Panel1.PerformLayout();
             this.formSplitContainer.Panel2.ResumeLayout(false);

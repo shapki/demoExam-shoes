@@ -4,35 +4,35 @@ namespace shoes.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("user")]
-    public partial class user
+    [Table("User")]
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
+        public User()
         {
-            orders = new HashSet<orders>();
+            Order = new HashSet<Order>();
         }
 
         [Key]
-        public int idUser { get; set; }
+        public int IdUser { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string role { get; set; }
+        public string Role { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string fullName { get; set; }
+        public string FullName { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string login { get; set; }
+        public string Login { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orders> orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }
