@@ -1,4 +1,4 @@
-namespace shoes.Models
+    namespace shoes.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
