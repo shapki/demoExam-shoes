@@ -27,5 +27,10 @@ namespace shoes.AppForms
                 contentFlowLayoutPanel.Controls.Add(new ProductUserControl(product));
             }
         }
+
+        private void logOutButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

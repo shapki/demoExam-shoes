@@ -34,6 +34,8 @@ namespace shoes.AppForms
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.contentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.userFullNameLabel = new System.Windows.Forms.Label();
+            this.logOutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
             this.formSplitContainer.Panel1.SuspendLayout();
             this.formSplitContainer.Panel2.SuspendLayout();
@@ -52,6 +54,8 @@ namespace shoes.AppForms
             // formSplitContainer.Panel1
             // 
             this.formSplitContainer.Panel1.BackColor = System.Drawing.Color.Chartreuse;
+            this.formSplitContainer.Panel1.Controls.Add(this.logOutButton);
+            this.formSplitContainer.Panel1.Controls.Add(this.userFullNameLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerSubtitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerTitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerLogoPictureBox);
@@ -70,7 +74,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -106,6 +110,28 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 366);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
+            // userFullNameLabel
+            // 
+            this.userFullNameLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userFullNameLabel.Location = new System.Drawing.Point(542, 9);
+            this.userFullNameLabel.Name = "userFullNameLabel";
+            this.userFullNameLabel.Size = new System.Drawing.Size(128, 23);
+            this.userFullNameLabel.TabIndex = 3;
+            this.userFullNameLabel.Text = "ФИО";
+            this.userFullNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.Location = new System.Drawing.Point(621, 25);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(49, 23);
+            this.logOutButton.TabIndex = 4;
+            this.logOutButton.Text = "Выйти";
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,7 +140,7 @@ namespace shoes.AppForms
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
             this.Name = "MainForm";
-            this.Text = "ООО \"Обувь\"";
+            this.Text = "ООО \"Обувь\" | Товары";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.formSplitContainer.Panel1.ResumeLayout(false);
             this.formSplitContainer.Panel1.PerformLayout();
@@ -133,5 +159,7 @@ namespace shoes.AppForms
         private System.Windows.Forms.Label headerTitleLabel;
         private System.Windows.Forms.PictureBox headerLogoPictureBox;
         private System.Windows.Forms.FlowLayoutPanel contentFlowLayoutPanel;
+        private System.Windows.Forms.Label userFullNameLabel;
+        private System.Windows.Forms.Button logOutButton;
     }
 }

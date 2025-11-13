@@ -103,6 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Shapkin_DemoShoesDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppForms\AuthForm.resx">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
