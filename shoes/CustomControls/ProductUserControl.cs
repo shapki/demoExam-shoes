@@ -42,7 +42,7 @@ namespace shoes.CustomControls
 
             if (_product.Discount > 0)
             {
-                discountLabel.Text += "\n" + Convert.ToString(_product.Discount) + "%";
+                discountLabel.Text += "\n" + "-" + Convert.ToString(_product.Discount) + "%";
             } else
             {
                 discountLabel.Text = "Скидки нет";
@@ -63,7 +63,7 @@ namespace shoes.CustomControls
 
         private void SetColorByValues()
         {
-            if (_product.Discount >= 15)
+            if (_product.Discount > 15)
             {
                 this.BackColor = Color.SeaGreen;
             } else if (_product.Stock == 0)

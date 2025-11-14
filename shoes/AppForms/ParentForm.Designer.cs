@@ -1,7 +1,7 @@
 ﻿
 namespace shoes.AppForms
 {
-    partial class PparentForm
+    partial class ParentForm
     {
         /// <summary>
         /// Required designer variable.

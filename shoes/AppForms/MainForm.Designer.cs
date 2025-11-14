@@ -30,12 +30,12 @@ namespace shoes.AppForms
         private void InitializeComponent()
         {
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.userFullNameLabel = new System.Windows.Forms.Label();
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.contentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.userFullNameLabel = new System.Windows.Forms.Label();
-            this.logOutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
             this.formSplitContainer.Panel1.SuspendLayout();
             this.formSplitContainer.Panel2.SuspendLayout();
@@ -46,6 +46,7 @@ namespace shoes.AppForms
             // formSplitContainer
             // 
             this.formSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.formSplitContainer.IsSplitterFixed = true;
             this.formSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.formSplitContainer.Name = "formSplitContainer";
@@ -67,6 +68,30 @@ namespace shoes.AppForms
             this.formSplitContainer.Size = new System.Drawing.Size(678, 450);
             this.formSplitContainer.SplitterDistance = 80;
             this.formSplitContainer.TabIndex = 2;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logOutButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.Location = new System.Drawing.Point(617, 9);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(49, 23);
+            this.logOutButton.TabIndex = 4;
+            this.logOutButton.Text = "Выйти";
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // userFullNameLabel
+            // 
+            this.userFullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.userFullNameLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userFullNameLabel.Location = new System.Drawing.Point(470, 9);
+            this.userFullNameLabel.Name = "userFullNameLabel";
+            this.userFullNameLabel.Size = new System.Drawing.Size(141, 23);
+            this.userFullNameLabel.TabIndex = 3;
+            this.userFullNameLabel.Text = "ФИО";
+            this.userFullNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // headerSubtitleLabel
             // 
@@ -110,28 +135,6 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 366);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
-            // userFullNameLabel
-            // 
-            this.userFullNameLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.userFullNameLabel.Location = new System.Drawing.Point(542, 9);
-            this.userFullNameLabel.Name = "userFullNameLabel";
-            this.userFullNameLabel.Size = new System.Drawing.Size(128, 23);
-            this.userFullNameLabel.TabIndex = 3;
-            this.userFullNameLabel.Text = "ФИО";
-            this.userFullNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // logOutButton
-            // 
-            this.logOutButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutButton.Location = new System.Drawing.Point(621, 25);
-            this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(49, 23);
-            this.logOutButton.TabIndex = 4;
-            this.logOutButton.Text = "Выйти";
-            this.logOutButton.UseVisualStyleBackColor = false;
-            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,8 +142,10 @@ namespace shoes.AppForms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
+            this.MinimumSize = new System.Drawing.Size(694, 489);
             this.Name = "MainForm";
             this.Text = "ООО \"Обувь\" | Товары";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.formSplitContainer.Panel1.ResumeLayout(false);
             this.formSplitContainer.Panel1.PerformLayout();

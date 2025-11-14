@@ -70,11 +70,11 @@
     <Compile Include="AppForms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppForms\PparentForm.cs">
+    <Compile Include="AppForms\ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppForms\PparentForm.Designer.cs">
-      <DependentUpon>PparentForm.cs</DependentUpon>
+    <Compile Include="AppForms\ParentForm.Designer.cs">
+      <DependentUpon>ParentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ProductUserControl.cs">
       <SubType>UserControl</SubType>
@@ -109,8 +109,8 @@
     <EmbeddedResource Include="AppForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppForms\PparentForm.resx">
-      <DependentUpon>PparentForm.cs</DependentUpon>
+    <EmbeddedResource Include="AppForms\ParentForm.resx">
+      <DependentUpon>ParentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>

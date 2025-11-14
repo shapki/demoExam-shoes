@@ -2,9 +2,9 @@
 
 namespace shoes.AppForms
 {
-    public partial class PparentForm : Form
+    public partial class ParentForm : Form
     {
-        public PparentForm()
+        public ParentForm()
         {
             InitializeComponent();
         }

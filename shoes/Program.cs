@@ -1,4 +1,5 @@
-﻿using shoes.Models;
+﻿using shoes.AppForms;
+using shoes.Models;
 using System;
 using System.Windows.Forms;
 
@@ -7,6 +8,7 @@ namespace shoes
     static class Program
     {
         public static ShoesModel context = new ShoesModel();
+        public static AuthForm authForm;
 
         /// <summary>
         /// Главная точка входа для приложения.
@@ -22,7 +24,8 @@ namespace shoes
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AppForms.MainForm());
+            authForm = new AuthForm();
+            Application.Run(authForm);
         }
     }
 }
