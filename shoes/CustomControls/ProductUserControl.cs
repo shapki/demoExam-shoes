@@ -15,6 +15,7 @@ namespace shoes.CustomControls
             InitializeComponent();
             _product = product;
             SetLabelTextValues();
+            SetProductPhoto();
             SetColorByValues();
             SetDiscount();
         }
@@ -39,16 +40,10 @@ namespace shoes.CustomControls
             stockLabel.Text += _product.Stock;
             unitLabel.Text += _product.Unit;
             deskLabel.Text = _product.Desk;
+        }
 
-            if (_product.Discount > 0)
-            {
-                discountLabel.Text += "\n" + "-" + Convert.ToString(_product.Discount) + "%";
-            } else
-            {
-                discountLabel.Text = "Скидки нет";
-            }
-
-
+        private void SetProductPhoto()
+        {
             string fileName = _product.Photo;
             string baseDirectory = @"X:\Инструментальные средства разработки программного обеспечения (МДК.02.02)\demoExam\shoes\shoes\Resources";
             if (!string.IsNullOrEmpty(fileName))
@@ -74,6 +69,15 @@ namespace shoes.CustomControls
 
         private void SetDiscount()
         {
+            if (_product.Discount > 0)
+            {
+                discountLabel.Text += "\n" + "-" + Convert.ToString(_product.Discount) + "%";
+            }
+            else
+            {
+                discountLabel.Text = "Скидки нет";
+            }
+
             double originalPrice = _product.Price;
             double discount = _product.Discount;
             if (discount > 0)

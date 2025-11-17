@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
-using System;
+using shoes.Services;
 
 namespace shoes.AppForms
 {
@@ -16,46 +16,30 @@ namespace shoes.AppForms
             string login = loginTextBox.Text.Trim();
             string password = passwordTextBox.Text;
 
-            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            if (ValidationHelper.ValidationLogin(login) == true && 
+                ValidationHelper.ValidationPassword(password) == true)
             {
-                MessageBox.Show("Введите логин и пароль", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                var user = Program.context.User.FirstOrDefault(em => em.Login == login && em.Password == password);
 
-            try
-            {
-                using (var context = Program.context)
+                if (user != null)
                 {
-                    var user = context.User
-                        .FirstOrDefault(u => u.Login == login && u.Password == password);
-
-                    if (user != null)
-                    {
-                        string fullName = user.FullName;
-                        string role = user.Role;
-                        this.Hide();
-                        MainForm mainForm = new MainForm(fullName, role);
-                        mainForm.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MainForm mainForm = new MainForm(user.FullName, user.Role);
+                    mainForm.ShowDialog();
                 }
-            }
-            catch (Exception ex)
+                else
+                {
+                    MessageBox.Show("Такого пользователя в базе данных нет!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
             {
-                MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Некорректный формат логина или пароля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void guestLogInButton_Click(object sender, System.EventArgs e)
         {
             this.Hide();
-            MainForm mainForm = new MainForm("Гостевой Аккаунт", "Гость");
+            MainForm mainForm = new MainForm("Гостевой аккаунт", "Гость");
             mainForm.Show();
         }
     }
