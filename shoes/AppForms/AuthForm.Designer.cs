@@ -36,6 +36,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
+            this.guestLogInButton = new System.Windows.Forms.Button();
             this.logInButton = new System.Windows.Forms.Button();
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,7 +44,6 @@ namespace shoes.AppForms
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.userTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.UserTableAdapter();
             this.tableAdapterManager = new shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager();
-            this.guestLogInButton = new System.Windows.Forms.Button();
             loginLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
@@ -139,6 +139,16 @@ namespace shoes.AppForms
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
             // 
+            // guestLogInButton
+            // 
+            this.guestLogInButton.Location = new System.Drawing.Point(272, 39);
+            this.guestLogInButton.Name = "guestLogInButton";
+            this.guestLogInButton.Size = new System.Drawing.Size(92, 24);
+            this.guestLogInButton.TabIndex = 5;
+            this.guestLogInButton.Text = "Войти гостем";
+            this.guestLogInButton.UseVisualStyleBackColor = true;
+            this.guestLogInButton.Click += new System.EventHandler(this.guestLogInButton_Click);
+            // 
             // logInButton
             // 
             this.logInButton.Location = new System.Drawing.Point(272, 5);
@@ -195,16 +205,6 @@ namespace shoes.AppForms
             this.tableAdapterManager.UpdateOrder = shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserTableAdapter = this.userTableAdapter;
             // 
-            // guestLogInButton
-            // 
-            this.guestLogInButton.Location = new System.Drawing.Point(272, 39);
-            this.guestLogInButton.Name = "guestLogInButton";
-            this.guestLogInButton.Size = new System.Drawing.Size(92, 24);
-            this.guestLogInButton.TabIndex = 5;
-            this.guestLogInButton.Text = "Войти гостем";
-            this.guestLogInButton.UseVisualStyleBackColor = true;
-            this.guestLogInButton.Click += new System.EventHandler(this.guestLogInButton_Click);
-            // 
             // AuthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +215,7 @@ namespace shoes.AppForms
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(392, 189);
             this.Name = "AuthForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | Авторизация";
             this.formSplitContainer.Panel1.ResumeLayout(false);
             this.formSplitContainer.Panel1.PerformLayout();

@@ -98,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\UserRole.cs" />
     <Compile Include="Services\ValidationHelper.cs" />
     <Compile Include="Shapkin_DemoShoesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

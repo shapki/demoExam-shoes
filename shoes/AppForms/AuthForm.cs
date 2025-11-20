@@ -23,6 +23,7 @@ namespace shoes.AppForms
 
                 if (user != null)
                 {
+                    this.Hide();
                     MainForm mainForm = new MainForm(user.FullName, user.Role);
                     mainForm.ShowDialog();
                 }
@@ -40,7 +41,7 @@ namespace shoes.AppForms
         {
             this.Hide();
             MainForm mainForm = new MainForm("Гостевой аккаунт", "Гость");
-            mainForm.Show();
+            mainForm.ShowDialog();
         }
     }
 }

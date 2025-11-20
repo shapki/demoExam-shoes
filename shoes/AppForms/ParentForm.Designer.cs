@@ -70,7 +70,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -106,13 +106,14 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 366);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
-            // PparentForm
+            // ParentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
-            this.Name = "PparentForm";
+            this.Name = "ParentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\"";
             this.formSplitContainer.Panel1.ResumeLayout(false);
             this.formSplitContainer.Panel1.PerformLayout();

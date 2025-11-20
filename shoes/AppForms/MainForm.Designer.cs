@@ -29,36 +29,47 @@ namespace shoes.AppForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.filterComboBox = new System.Windows.Forms.ComboBox();
+            this.sortButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.headerPanel = new System.Windows.Forms.Panel();
+            this.headerTitleLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.userFullNameLabel = new System.Windows.Forms.Label();
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
-            this.headerTitleLabel = new System.Windows.Forms.Label();
-            this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.contentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
+            this.supplyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplyerTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
             this.formSplitContainer.Panel1.SuspendLayout();
             this.formSplitContainer.Panel2.SuspendLayout();
             this.formSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).BeginInit();
             this.headerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplyerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // formSplitContainer
             // 
             this.formSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.formSplitContainer.IsSplitterFixed = true;
             this.formSplitContainer.Location = new System.Drawing.Point(0, 0);
             this.formSplitContainer.Name = "formSplitContainer";
             this.formSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // formSplitContainer.Panel1
             // 
-            this.formSplitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            this.formSplitContainer.Panel1.Controls.Add(this.textBox1);
+            this.formSplitContainer.Panel1.BackColor = System.Drawing.Color.Chartreuse;
+            this.formSplitContainer.Panel1.Controls.Add(this.filterComboBox);
+            this.formSplitContainer.Panel1.Controls.Add(this.sortButton);
+            this.formSplitContainer.Panel1.Controls.Add(this.searchTextBox);
             this.formSplitContainer.Panel1.Controls.Add(this.searchButton);
             this.formSplitContainer.Panel1.Controls.Add(this.headerPanel);
             // 
@@ -68,6 +79,83 @@ namespace shoes.AppForms
             this.formSplitContainer.Size = new System.Drawing.Size(678, 450);
             this.formSplitContainer.SplitterDistance = 96;
             this.formSplitContainer.TabIndex = 2;
+            // 
+            // filterComboBox
+            // 
+            this.filterComboBox.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.filterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterComboBox.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.filterComboBox.FormattingEnabled = true;
+            this.filterComboBox.Location = new System.Drawing.Point(258, 73);
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(101, 23);
+            this.filterComboBox.TabIndex = 8;
+            this.filterComboBox.Visible = false;
+            // 
+            // sortButton
+            // 
+            this.sortButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sortButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.sortButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.sortButton.Location = new System.Drawing.Point(365, 73);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(171, 22);
+            this.sortButton.TabIndex = 7;
+            this.sortButton.Text = "Сортировка по кол-ву ■";
+            this.sortButton.UseVisualStyleBackColor = false;
+            this.sortButton.Visible = false;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.searchTextBox.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.searchTextBox.Location = new System.Drawing.Point(542, 72);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(100, 23);
+            this.searchTextBox.TabIndex = 6;
+            this.searchTextBox.Visible = false;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.searchButton.Location = new System.Drawing.Point(648, 72);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(24, 22);
+            this.searchButton.TabIndex = 5;
+            this.searchButton.Text = "🔎";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Visible = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // headerPanel
+            // 
+            this.headerPanel.BackColor = System.Drawing.Color.Chartreuse;
+            this.headerPanel.Controls.Add(this.headerTitleLabel);
+            this.headerPanel.Controls.Add(this.logOutButton);
+            this.headerPanel.Controls.Add(this.headerLogoPictureBox);
+            this.headerPanel.Controls.Add(this.userFullNameLabel);
+            this.headerPanel.Controls.Add(this.headerSubtitleLabel);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Size = new System.Drawing.Size(678, 70);
+            this.headerPanel.TabIndex = 1;
+            // 
+            // headerTitleLabel
+            // 
+            this.headerTitleLabel.AutoSize = true;
+            this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.headerTitleLabel.Location = new System.Drawing.Point(77, 17);
+            this.headerTitleLabel.Name = "headerTitleLabel";
+            this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
+            this.headerTitleLabel.TabIndex = 1;
+            this.headerTitleLabel.Text = "ООО \"Обувь\"";
             // 
             // logOutButton
             // 
@@ -82,6 +170,16 @@ namespace shoes.AppForms
             this.logOutButton.Text = "Выйти";
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // headerLogoPictureBox
+            // 
+            this.headerLogoPictureBox.Image = global::shoes.Properties.Resources.Icon2;
+            this.headerLogoPictureBox.Location = new System.Drawing.Point(1, -1);
+            this.headerLogoPictureBox.Name = "headerLogoPictureBox";
+            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 70);
+            this.headerLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.headerLogoPictureBox.TabIndex = 0;
+            this.headerLogoPictureBox.TabStop = false;
             // 
             // userFullNameLabel
             // 
@@ -100,29 +198,9 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 40);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
-            // 
-            // headerTitleLabel
-            // 
-            this.headerTitleLabel.AutoSize = true;
-            this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(77, 17);
-            this.headerTitleLabel.Name = "headerTitleLabel";
-            this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
-            this.headerTitleLabel.TabIndex = 1;
-            this.headerTitleLabel.Text = "ООО \"Обувь\"";
-            // 
-            // headerLogoPictureBox
-            // 
-            this.headerLogoPictureBox.Image = global::shoes.Properties.Resources.Icon2;
-            this.headerLogoPictureBox.Location = new System.Drawing.Point(1, -1);
-            this.headerLogoPictureBox.Name = "headerLogoPictureBox";
-            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 70);
-            this.headerLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.headerLogoPictureBox.TabIndex = 0;
-            this.headerLogoPictureBox.TabStop = false;
             // 
             // contentFlowLayoutPanel
             // 
@@ -135,41 +213,19 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 350);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
-            // headerPanel
+            // shapkin_DemoShoesDataSet
             // 
-            this.headerPanel.BackColor = System.Drawing.Color.Chartreuse;
-            this.headerPanel.Controls.Add(this.headerTitleLabel);
-            this.headerPanel.Controls.Add(this.logOutButton);
-            this.headerPanel.Controls.Add(this.headerLogoPictureBox);
-            this.headerPanel.Controls.Add(this.userFullNameLabel);
-            this.headerPanel.Controls.Add(this.headerSubtitleLabel);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(678, 70);
-            this.headerPanel.TabIndex = 1;
+            this.shapkin_DemoShoesDataSet.DataSetName = "Shapkin_DemoShoesDataSet";
+            this.shapkin_DemoShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // searchButton
+            // supplyerBindingSource
             // 
-            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.searchButton.Location = new System.Drawing.Point(648, 72);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(24, 22);
-            this.searchButton.TabIndex = 5;
-            this.searchButton.Text = "🔎";
-            this.searchButton.UseVisualStyleBackColor = false;
+            this.supplyerBindingSource.DataMember = "Supplyer";
+            this.supplyerBindingSource.DataSource = this.shapkin_DemoShoesDataSet;
             // 
-            // textBox1
+            // supplyerTableAdapter
             // 
-            this.textBox1.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.textBox1.Location = new System.Drawing.Point(542, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 6;
+            this.supplyerTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -180,6 +236,7 @@ namespace shoes.AppForms
             this.Controls.Add(this.formSplitContainer);
             this.MinimumSize = new System.Drawing.Size(694, 489);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | Товары";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -188,9 +245,11 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).EndInit();
             this.formSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).EndInit();
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplyerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,6 +265,11 @@ namespace shoes.AppForms
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.ComboBox filterComboBox;
+        private Shapkin_DemoShoesDataSet shapkin_DemoShoesDataSet;
+        private System.Windows.Forms.BindingSource supplyerBindingSource;
+        private Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter supplyerTableAdapter;
     }
 }
