@@ -213,6 +213,7 @@ namespace shoes.AppForms
             this.Controls.Add(this.formSplitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(392, 189);
             this.MinimumSize = new System.Drawing.Size(392, 189);
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

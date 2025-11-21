@@ -24,7 +24,8 @@ namespace shoes.AppForms
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "shapkin_DemoShoesDataSet.Supplyer". При необходимости она может быть перемещена или удалена.
             this.supplyerTableAdapter.Fill(this.shapkin_DemoShoesDataSet.Supplyer);
-            ShowProducts();
+            LoadFilterComboBox();
+            ShowProductsFilteredAndSorted();
             CheckUserRole();
         }
 
@@ -37,7 +38,6 @@ namespace shoes.AppForms
                 filterComboBox.Visible = true;
                 sortButton.Visible = true;
                 searchTextBox.Visible = true;
-                searchButton.Visible = true;
                 formSplitContainer.Panel1.BackColor = System.Drawing.Color.White;
             } else
             {
@@ -45,14 +45,89 @@ namespace shoes.AppForms
             }
         }
 
-        private void ShowProducts()
+        private void ShowProductsFilteredAndSorted()
         {
-            List<Product> products = Program.context.Product.OrderBy(p => p.ProductName).ToList();
+            List<Product> products = GetFilteredProducts();
+            products = ApplySorting(products);
+
+            contentFlowLayoutPanel.Controls.Clear();
 
             foreach (Product product in products)
             {
                 contentFlowLayoutPanel.Controls.Add(new ProductUserControl(product));
             }
+        }
+
+        private List<Product> GetFilteredProducts()
+        {
+            string selectedSupplier = filterComboBox.SelectedItem?.ToString();
+            var products = Program.context.Product.AsQueryable();
+
+            if (!string.IsNullOrEmpty(selectedSupplier) && selectedSupplier != "Все поставщики")
+            {
+                var supplier = Program.context.Supplyer.FirstOrDefault(s => s.Name == selectedSupplier);
+                if (supplier != null)
+                {
+                    products = products.Where(p => p.SupplyerId == supplier.IdSupplyer);
+                }
+            }
+
+            products = SearchProduct(products);
+
+            return products.ToList();
+        }
+
+        private IQueryable<Product> SearchProduct(IQueryable<Product> products)
+        {
+            string searchText = searchTextBox.Text.Trim().ToLower();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                products = products.Where(p =>
+                    (p.ProductName != null && p.ProductName.ToLower().Contains(searchText)) ||
+                    (p.ProductCat != null && p.ProductCat.ToLower().Contains(searchText)) ||
+                    (p.Desk != null && p.Desk.ToLower().Contains(searchText)) ||
+                    (p.Unit != null && p.Unit.ToLower().Contains(searchText)) ||
+                    (p.Supplyer != null && p.Supplyer.Name != null && p.Supplyer.Name.ToLower().Contains(searchText)) ||
+                    (p.Manufacturer != null && p.Manufacturer.Name != null && p.Manufacturer.Name.ToLower().Contains(searchText))
+                );
+            }
+
+            return products;
+        }
+
+        private List<Product> ApplySorting(List<Product> products)
+        {
+            switch (sortMode)
+            {
+                case 1:
+                    return products
+                        .OrderByDescending(p => p.Stock)
+                        .ThenBy(p => p.ProductName)
+                        .ToList();
+                case 2:
+                    return products
+                        .OrderBy(p => p.Stock)
+                        .ThenBy(p => p.ProductName)
+                        .ToList();
+                default:
+                    return products
+                        .OrderBy(p => p.ProductName)
+                        .ToList();
+            }
+        }
+
+        private void LoadFilterComboBox()
+        {
+            filterComboBox.Items.Clear();
+            filterComboBox.Items.Add("Все поставщики");
+
+            var suppliers = Program.context.Supplyer.OrderBy(s => s.Name).ToList();
+            foreach (var supplier in suppliers)
+            {
+                filterComboBox.Items.Add(supplier.Name);
+            }
+
+            filterComboBox.SelectedIndex = 0;
         }
 
         private void logOutButton_Click(object sender, System.EventArgs e)
@@ -101,9 +176,21 @@ namespace shoes.AppForms
                     sortButton.Text = sortButtonText + "■";
                     break;
             }
+
+            ShowProductsFilteredAndSorted();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void filterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowProductsFilteredAndSorted();
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ShowProductsFilteredAndSorted();
+        }
+
+        private void addProductButton_Click(object sender, EventArgs e)
         {
 
         }

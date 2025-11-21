@@ -34,7 +34,6 @@ namespace shoes.AppForms
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.sortButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
@@ -45,6 +44,7 @@ namespace shoes.AppForms
             this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
             this.supplyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplyerTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter();
+            this.addProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
             this.formSplitContainer.Panel1.SuspendLayout();
             this.formSplitContainer.Panel2.SuspendLayout();
@@ -70,7 +70,6 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel1.Controls.Add(this.filterComboBox);
             this.formSplitContainer.Panel1.Controls.Add(this.sortButton);
             this.formSplitContainer.Panel1.Controls.Add(this.searchTextBox);
-            this.formSplitContainer.Panel1.Controls.Add(this.searchButton);
             this.formSplitContainer.Panel1.Controls.Add(this.headerPanel);
             // 
             // formSplitContainer.Panel2
@@ -82,16 +81,18 @@ namespace shoes.AppForms
             // 
             // filterComboBox
             // 
+            this.filterComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filterComboBox.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.filterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterComboBox.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.filterComboBox.FormattingEnabled = true;
-            this.filterComboBox.Location = new System.Drawing.Point(258, 73);
+            this.filterComboBox.Location = new System.Drawing.Point(275, 72);
             this.filterComboBox.Name = "filterComboBox";
-            this.filterComboBox.Size = new System.Drawing.Size(101, 23);
+            this.filterComboBox.Size = new System.Drawing.Size(114, 23);
             this.filterComboBox.TabIndex = 8;
             this.filterComboBox.Visible = false;
+            this.filterComboBox.SelectedIndexChanged += new System.EventHandler(this.filterComboBox_SelectedIndexChanged);
             // 
             // sortButton
             // 
@@ -99,7 +100,7 @@ namespace shoes.AppForms
             this.sortButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.sortButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.sortButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.sortButton.Location = new System.Drawing.Point(365, 73);
+            this.sortButton.Location = new System.Drawing.Point(395, 72);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(171, 22);
             this.sortButton.TabIndex = 7;
@@ -110,32 +111,20 @@ namespace shoes.AppForms
             // 
             // searchTextBox
             // 
+            this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.searchTextBox.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.searchTextBox.Location = new System.Drawing.Point(542, 72);
+            this.searchTextBox.Location = new System.Drawing.Point(572, 71);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 23);
             this.searchTextBox.TabIndex = 6;
             this.searchTextBox.Visible = false;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.searchButton.Location = new System.Drawing.Point(648, 72);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(24, 22);
-            this.searchButton.TabIndex = 5;
-            this.searchButton.Text = "🔎";
-            this.searchButton.UseVisualStyleBackColor = false;
-            this.searchButton.Visible = false;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.Chartreuse;
+            this.headerPanel.Controls.Add(this.addProductButton);
             this.headerPanel.Controls.Add(this.headerTitleLabel);
             this.headerPanel.Controls.Add(this.logOutButton);
             this.headerPanel.Controls.Add(this.headerLogoPictureBox);
@@ -227,6 +216,21 @@ namespace shoes.AppForms
             // 
             this.supplyerTableAdapter.ClearBeforeFill = true;
             // 
+            // addProductButton
+            // 
+            this.addProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addProductButton.BackColor = System.Drawing.Color.LightGray;
+            this.addProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.addProductButton.Location = new System.Drawing.Point(591, 43);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(81, 22);
+            this.addProductButton.TabIndex = 9;
+            this.addProductButton.Text = "Доб. товар";
+            this.addProductButton.UseVisualStyleBackColor = false;
+            this.addProductButton.Visible = false;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,12 +268,12 @@ namespace shoes.AppForms
         private System.Windows.Forms.Label userFullNameLabel;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Panel headerPanel;
-        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.ComboBox filterComboBox;
         private Shapkin_DemoShoesDataSet shapkin_DemoShoesDataSet;
         private System.Windows.Forms.BindingSource supplyerBindingSource;
         private Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter supplyerTableAdapter;
+        private System.Windows.Forms.Button addProductButton;
     }
 }
