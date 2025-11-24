@@ -13,16 +13,18 @@ namespace shoes.AppForms
         private string _role;
         private int sortMode = 0;
         private string sortButtonText = "Сортировка по кол-ву ";
+        private ProductService _productService;
+
         public MainForm(string fullName, string role)
         {
             InitializeComponent();
             userFullNameLabel.Text = fullName;
             _role = role;
+            _productService = new ProductService(Program.context);
         }
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shapkin_DemoShoesDataSet.Supplyer". При необходимости она может быть перемещена или удалена.
             this.supplyerTableAdapter.Fill(this.shapkin_DemoShoesDataSet.Supplyer);
             LoadFilterComboBox();
             ShowProductsFilteredAndSorted();
@@ -38,8 +40,10 @@ namespace shoes.AppForms
                 filterComboBox.Visible = true;
                 sortButton.Visible = true;
                 searchTextBox.Visible = true;
+                addProductButton.Visible = _role == adminRole.GetDescription();
                 formSplitContainer.Panel1.BackColor = System.Drawing.Color.White;
-            } else
+            }
+            else
             {
                 formSplitContainer.SplitterDistance = 70;
             }
@@ -54,8 +58,17 @@ namespace shoes.AppForms
 
             foreach (Product product in products)
             {
-                contentFlowLayoutPanel.Controls.Add(new ProductUserControl(product));
+                var productControl = new ProductUserControl(product);
+                productControl.ProductClicked += ProductControl_ProductClicked;
+                contentFlowLayoutPanel.Controls.Add(productControl);
             }
+        }
+
+        private void ProductControl_ProductClicked(object sender, Product product)
+        {
+            var editForm = new CreateUpdateProductForm(product);
+            editForm.ProductSaved += (s, updatedProduct) => ShowProductsFilteredAndSorted();
+            editForm.ShowDialog();
         }
 
         private List<Product> GetFilteredProducts()
@@ -192,7 +205,9 @@ namespace shoes.AppForms
 
         private void addProductButton_Click(object sender, EventArgs e)
         {
-
+            var createForm = new CreateUpdateProductForm();
+            createForm.ProductSaved += (s, product) => ShowProductsFilteredAndSorted();
+            createForm.ShowDialog();
         }
     }
 }

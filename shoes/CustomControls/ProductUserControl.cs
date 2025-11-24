@@ -10,6 +10,9 @@ namespace shoes.CustomControls
     public partial class ProductUserControl : UserControl
     {
         private Product _product;
+
+        public event EventHandler<Product> ProductClicked;
+
         public ProductUserControl(Product product)
         {
             InitializeComponent();
@@ -18,6 +21,11 @@ namespace shoes.CustomControls
             SetProductPhoto();
             SetColorByValues();
             SetDiscount();
+
+            foreach (Control control in this.Controls)
+            {
+                control.Click += ProductUserControl_Click;
+            }
         }
 
         private void SetLabelTextValues()
@@ -26,19 +34,19 @@ namespace shoes.CustomControls
 
             var SupplyerName = Program.context.Supplyer.FirstOrDefault(e => e.IdSupplyer == _product.SupplyerId);
             if (SupplyerName != null)
-                supplyerLabel.Text += SupplyerName.Name;
+                supplyerLabel.Text = "Поставщик: " + SupplyerName.Name;
             else
-                supplyerLabel.Text += "";
+                supplyerLabel.Text = "Поставщик: ";
 
             var ManufacturerName = Program.context.Manufacturer.FirstOrDefault(e => e.IdManufacturer == _product.ManufacturerId);
             if (ManufacturerName != null)
-                manufacturLabel.Text += ManufacturerName.Name;
+                manufacturLabel.Text = "Производитель: " + ManufacturerName.Name;
             else
-                manufacturLabel.Text += "";
+                manufacturLabel.Text = "Производитель: ";
 
-            priceLabel.Text += _product.Price;
-            stockLabel.Text += _product.Stock;
-            unitLabel.Text += _product.Unit;
+            priceLabel.Text = "Цена: " + _product.Price;
+            stockLabel.Text = "На складе: " + _product.Stock;
+            unitLabel.Text = "Ед. изм: " + _product.Unit;
             deskLabel.Text = _product.Desk;
         }
 
@@ -104,7 +112,7 @@ namespace shoes.CustomControls
 
         private void ProductUserControl_Click(object sender, EventArgs e)
         {
-
+            ProductClicked?.Invoke(this, _product);
         }
     }
 }

@@ -44,11 +44,11 @@ namespace shoes.AppForms
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
-            this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.ProductTableAdapter();
-            this.tableAdapterManager = new shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager();
+            this.deleteProductButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.productNameTextBox = new System.Windows.Forms.TextBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
             this.unitTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.supplyerIdComboBox = new System.Windows.Forms.ComboBox();
@@ -58,7 +58,8 @@ namespace shoes.AppForms
             this.stockTextBox = new System.Windows.Forms.TextBox();
             this.deskTextBox = new System.Windows.Forms.TextBox();
             this.photoTextBox = new System.Windows.Forms.TextBox();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.productTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.ProductTableAdapter();
+            this.tableAdapterManager = new shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager();
             productNameLabel = new System.Windows.Forms.Label();
             unitLabel = new System.Windows.Forms.Label();
             priceLabel = new System.Windows.Forms.Label();
@@ -74,9 +75,109 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel2.SuspendLayout();
             this.formSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // productNameLabel
+            // 
+            productNameLabel.AutoSize = true;
+            productNameLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            productNameLabel.Location = new System.Drawing.Point(79, 32);
+            productNameLabel.Name = "productNameLabel";
+            productNameLabel.Size = new System.Drawing.Size(93, 15);
+            productNameLabel.TabIndex = 0;
+            productNameLabel.Text = "Наименование:";
+            // 
+            // unitLabel
+            // 
+            unitLabel.AutoSize = true;
+            unitLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            unitLabel.Location = new System.Drawing.Point(80, 191);
+            unitLabel.Name = "unitLabel";
+            unitLabel.Size = new System.Drawing.Size(89, 15);
+            unitLabel.TabIndex = 2;
+            unitLabel.Text = "Ед. измерения:";
+            // 
+            // priceLabel
+            // 
+            priceLabel.AutoSize = true;
+            priceLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            priceLabel.Location = new System.Drawing.Point(80, 165);
+            priceLabel.Name = "priceLabel";
+            priceLabel.Size = new System.Drawing.Size(38, 15);
+            priceLabel.TabIndex = 4;
+            priceLabel.Text = "Цена:";
+            // 
+            // supplyerIdLabel
+            // 
+            supplyerIdLabel.AutoSize = true;
+            supplyerIdLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            supplyerIdLabel.Location = new System.Drawing.Point(80, 111);
+            supplyerIdLabel.Name = "supplyerIdLabel";
+            supplyerIdLabel.Size = new System.Drawing.Size(94, 15);
+            supplyerIdLabel.TabIndex = 6;
+            supplyerIdLabel.Text = "Производитель:";
+            // 
+            // manufacturerIdLabel
+            // 
+            manufacturerIdLabel.AutoSize = true;
+            manufacturerIdLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            manufacturerIdLabel.Location = new System.Drawing.Point(80, 138);
+            manufacturerIdLabel.Name = "manufacturerIdLabel";
+            manufacturerIdLabel.Size = new System.Drawing.Size(72, 15);
+            manufacturerIdLabel.TabIndex = 8;
+            manufacturerIdLabel.Text = "Поставщик:";
+            // 
+            // productCatLabel
+            // 
+            productCatLabel.AutoSize = true;
+            productCatLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            productCatLabel.Location = new System.Drawing.Point(79, 58);
+            productCatLabel.Name = "productCatLabel";
+            productCatLabel.Size = new System.Drawing.Size(67, 15);
+            productCatLabel.TabIndex = 10;
+            productCatLabel.Text = "Категория:";
+            // 
+            // discountLabel
+            // 
+            discountLabel.AutoSize = true;
+            discountLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            discountLabel.Location = new System.Drawing.Point(80, 243);
+            discountLabel.Name = "discountLabel";
+            discountLabel.Size = new System.Drawing.Size(49, 15);
+            discountLabel.TabIndex = 12;
+            discountLabel.Text = "Скидка:";
+            // 
+            // stockLabel
+            // 
+            stockLabel.AutoSize = true;
+            stockLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            stockLabel.Location = new System.Drawing.Point(80, 217);
+            stockLabel.Name = "stockLabel";
+            stockLabel.Size = new System.Drawing.Size(102, 15);
+            stockLabel.TabIndex = 14;
+            stockLabel.Text = "Кол-во на складе:";
+            // 
+            // deskLabel
+            // 
+            deskLabel.AutoSize = true;
+            deskLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            deskLabel.Location = new System.Drawing.Point(80, 85);
+            deskLabel.Name = "deskLabel";
+            deskLabel.Size = new System.Drawing.Size(65, 15);
+            deskLabel.TabIndex = 16;
+            deskLabel.Text = "Описание:";
+            // 
+            // photoLabel
+            // 
+            photoLabel.AutoSize = true;
+            photoLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            photoLabel.Location = new System.Drawing.Point(80, 6);
+            photoLabel.Name = "photoLabel";
+            photoLabel.Size = new System.Drawing.Size(39, 15);
+            photoLabel.TabIndex = 18;
+            photoLabel.Text = "Фото:";
             // 
             // formSplitContainer
             // 
@@ -98,6 +199,7 @@ namespace shoes.AppForms
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.AutoScroll = true;
+            this.formSplitContainer.Panel2.Controls.Add(this.deleteProductButton);
             this.formSplitContainer.Panel2.Controls.Add(this.saveButton);
             this.formSplitContainer.Panel2.Controls.Add(productNameLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.productNameTextBox);
@@ -129,7 +231,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(143, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(142, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Редактирование товара";
             // 
@@ -154,15 +256,138 @@ namespace shoes.AppForms
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
             // 
-            // shapkin_DemoShoesDataSet
+            // deleteProductButton
             // 
-            this.shapkin_DemoShoesDataSet.DataSetName = "Shapkin_DemoShoesDataSet";
-            this.shapkin_DemoShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.deleteProductButton.BackColor = System.Drawing.Color.Red;
+            this.deleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.deleteProductButton.ForeColor = System.Drawing.Color.White;
+            this.deleteProductButton.Location = new System.Drawing.Point(200, 281);
+            this.deleteProductButton.Name = "deleteProductButton";
+            this.deleteProductButton.Size = new System.Drawing.Size(105, 22);
+            this.deleteProductButton.TabIndex = 20;
+            this.deleteProductButton.Text = "Удалить товар";
+            this.deleteProductButton.UseVisualStyleBackColor = false;
+            this.deleteProductButton.Visible = false;
+            this.deleteProductButton.Click += new System.EventHandler(this.deleteProductButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.BackColor = System.Drawing.Color.LightGray;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.saveButton.Location = new System.Drawing.Point(84, 281);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(110, 22);
+            this.saveButton.TabIndex = 10;
+            this.saveButton.Text = "Сохранить изм.";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // productNameTextBox
+            // 
+            this.productNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductName", true));
+            this.productNameTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.productNameTextBox.Location = new System.Drawing.Point(184, 29);
+            this.productNameTextBox.Name = "productNameTextBox";
+            this.productNameTextBox.Size = new System.Drawing.Size(121, 22);
+            this.productNameTextBox.TabIndex = 1;
             // 
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
             this.productBindingSource.DataSource = this.shapkin_DemoShoesDataSet;
+            // 
+            // shapkin_DemoShoesDataSet
+            // 
+            this.shapkin_DemoShoesDataSet.DataSetName = "Shapkin_DemoShoesDataSet";
+            this.shapkin_DemoShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // unitTextBox
+            // 
+            this.unitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
+            this.unitTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.unitTextBox.Location = new System.Drawing.Point(184, 188);
+            this.unitTextBox.Name = "unitTextBox";
+            this.unitTextBox.Size = new System.Drawing.Size(121, 22);
+            this.unitTextBox.TabIndex = 3;
+            // 
+            // priceTextBox
+            // 
+            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Price", true));
+            this.priceTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.priceTextBox.Location = new System.Drawing.Point(184, 162);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(121, 22);
+            this.priceTextBox.TabIndex = 5;
+            // 
+            // supplyerIdComboBox
+            // 
+            this.supplyerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "SupplyerId", true));
+            this.supplyerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.supplyerIdComboBox.FormattingEnabled = true;
+            this.supplyerIdComboBox.Location = new System.Drawing.Point(184, 108);
+            this.supplyerIdComboBox.Name = "supplyerIdComboBox";
+            this.supplyerIdComboBox.Size = new System.Drawing.Size(121, 23);
+            this.supplyerIdComboBox.TabIndex = 7;
+            // 
+            // manufacturerIdComboBox
+            // 
+            this.manufacturerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "ManufacturerId", true));
+            this.manufacturerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.manufacturerIdComboBox.FormattingEnabled = true;
+            this.manufacturerIdComboBox.Location = new System.Drawing.Point(184, 135);
+            this.manufacturerIdComboBox.Name = "manufacturerIdComboBox";
+            this.manufacturerIdComboBox.Size = new System.Drawing.Size(121, 23);
+            this.manufacturerIdComboBox.TabIndex = 9;
+            // 
+            // productCatComboBox
+            // 
+            this.productCatComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductCat", true));
+            this.productCatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productCatComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.productCatComboBox.FormattingEnabled = true;
+            this.productCatComboBox.Location = new System.Drawing.Point(184, 55);
+            this.productCatComboBox.Name = "productCatComboBox";
+            this.productCatComboBox.Size = new System.Drawing.Size(121, 23);
+            this.productCatComboBox.TabIndex = 11;
+            // 
+            // discountTextBox
+            // 
+            this.discountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Discount", true));
+            this.discountTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.discountTextBox.Location = new System.Drawing.Point(184, 240);
+            this.discountTextBox.Name = "discountTextBox";
+            this.discountTextBox.Size = new System.Drawing.Size(121, 22);
+            this.discountTextBox.TabIndex = 13;
+            // 
+            // stockTextBox
+            // 
+            this.stockTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Stock", true));
+            this.stockTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.stockTextBox.Location = new System.Drawing.Point(184, 214);
+            this.stockTextBox.Name = "stockTextBox";
+            this.stockTextBox.Size = new System.Drawing.Size(121, 22);
+            this.stockTextBox.TabIndex = 15;
+            // 
+            // deskTextBox
+            // 
+            this.deskTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Desk", true));
+            this.deskTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.deskTextBox.Location = new System.Drawing.Point(184, 82);
+            this.deskTextBox.Name = "deskTextBox";
+            this.deskTextBox.Size = new System.Drawing.Size(121, 22);
+            this.deskTextBox.TabIndex = 17;
+            // 
+            // photoTextBox
+            // 
+            this.photoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Photo", true));
+            this.photoTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
+            this.photoTextBox.Location = new System.Drawing.Point(184, 3);
+            this.photoTextBox.Name = "photoTextBox";
+            this.photoTextBox.Size = new System.Drawing.Size(121, 22);
+            this.photoTextBox.TabIndex = 19;
             // 
             // productTableAdapter
             // 
@@ -179,213 +404,6 @@ namespace shoes.AppForms
             this.tableAdapterManager.SupplyerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserTableAdapter = null;
-            // 
-            // productNameLabel
-            // 
-            productNameLabel.AutoSize = true;
-            productNameLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            productNameLabel.Location = new System.Drawing.Point(79, 32);
-            productNameLabel.Name = "productNameLabel";
-            productNameLabel.Size = new System.Drawing.Size(93, 15);
-            productNameLabel.TabIndex = 0;
-            productNameLabel.Text = "Наименование:";
-            // 
-            // productNameTextBox
-            // 
-            this.productNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductName", true));
-            this.productNameTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.productNameTextBox.Location = new System.Drawing.Point(184, 29);
-            this.productNameTextBox.Name = "productNameTextBox";
-            this.productNameTextBox.Size = new System.Drawing.Size(121, 22);
-            this.productNameTextBox.TabIndex = 1;
-            // 
-            // unitLabel
-            // 
-            unitLabel.AutoSize = true;
-            unitLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            unitLabel.Location = new System.Drawing.Point(80, 191);
-            unitLabel.Name = "unitLabel";
-            unitLabel.Size = new System.Drawing.Size(89, 15);
-            unitLabel.TabIndex = 2;
-            unitLabel.Text = "Ед. измерения:";
-            // 
-            // unitTextBox
-            // 
-            this.unitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
-            this.unitTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.unitTextBox.Location = new System.Drawing.Point(184, 188);
-            this.unitTextBox.Name = "unitTextBox";
-            this.unitTextBox.Size = new System.Drawing.Size(121, 22);
-            this.unitTextBox.TabIndex = 3;
-            // 
-            // priceLabel
-            // 
-            priceLabel.AutoSize = true;
-            priceLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            priceLabel.Location = new System.Drawing.Point(80, 165);
-            priceLabel.Name = "priceLabel";
-            priceLabel.Size = new System.Drawing.Size(38, 15);
-            priceLabel.TabIndex = 4;
-            priceLabel.Text = "Цена:";
-            // 
-            // priceTextBox
-            // 
-            this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Price", true));
-            this.priceTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.priceTextBox.Location = new System.Drawing.Point(184, 162);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(121, 22);
-            this.priceTextBox.TabIndex = 5;
-            // 
-            // supplyerIdLabel
-            // 
-            supplyerIdLabel.AutoSize = true;
-            supplyerIdLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            supplyerIdLabel.Location = new System.Drawing.Point(80, 111);
-            supplyerIdLabel.Name = "supplyerIdLabel";
-            supplyerIdLabel.Size = new System.Drawing.Size(94, 15);
-            supplyerIdLabel.TabIndex = 6;
-            supplyerIdLabel.Text = "Производитель:";
-            // 
-            // supplyerIdComboBox
-            // 
-            this.supplyerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "SupplyerId", true));
-            this.supplyerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.supplyerIdComboBox.FormattingEnabled = true;
-            this.supplyerIdComboBox.Location = new System.Drawing.Point(184, 108);
-            this.supplyerIdComboBox.Name = "supplyerIdComboBox";
-            this.supplyerIdComboBox.Size = new System.Drawing.Size(121, 23);
-            this.supplyerIdComboBox.TabIndex = 7;
-            // 
-            // manufacturerIdLabel
-            // 
-            manufacturerIdLabel.AutoSize = true;
-            manufacturerIdLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            manufacturerIdLabel.Location = new System.Drawing.Point(80, 138);
-            manufacturerIdLabel.Name = "manufacturerIdLabel";
-            manufacturerIdLabel.Size = new System.Drawing.Size(72, 15);
-            manufacturerIdLabel.TabIndex = 8;
-            manufacturerIdLabel.Text = "Поставщик:";
-            // 
-            // manufacturerIdComboBox
-            // 
-            this.manufacturerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ManufacturerId", true));
-            this.manufacturerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.manufacturerIdComboBox.FormattingEnabled = true;
-            this.manufacturerIdComboBox.Location = new System.Drawing.Point(184, 135);
-            this.manufacturerIdComboBox.Name = "manufacturerIdComboBox";
-            this.manufacturerIdComboBox.Size = new System.Drawing.Size(121, 23);
-            this.manufacturerIdComboBox.TabIndex = 9;
-            // 
-            // productCatLabel
-            // 
-            productCatLabel.AutoSize = true;
-            productCatLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            productCatLabel.Location = new System.Drawing.Point(79, 58);
-            productCatLabel.Name = "productCatLabel";
-            productCatLabel.Size = new System.Drawing.Size(67, 15);
-            productCatLabel.TabIndex = 10;
-            productCatLabel.Text = "Категория:";
-            // 
-            // productCatComboBox
-            // 
-            this.productCatComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductCat", true));
-            this.productCatComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.productCatComboBox.FormattingEnabled = true;
-            this.productCatComboBox.Location = new System.Drawing.Point(184, 55);
-            this.productCatComboBox.Name = "productCatComboBox";
-            this.productCatComboBox.Size = new System.Drawing.Size(121, 23);
-            this.productCatComboBox.TabIndex = 11;
-            // 
-            // discountLabel
-            // 
-            discountLabel.AutoSize = true;
-            discountLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            discountLabel.Location = new System.Drawing.Point(80, 243);
-            discountLabel.Name = "discountLabel";
-            discountLabel.Size = new System.Drawing.Size(49, 15);
-            discountLabel.TabIndex = 12;
-            discountLabel.Text = "Скидка:";
-            // 
-            // discountTextBox
-            // 
-            this.discountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Discount", true));
-            this.discountTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.discountTextBox.Location = new System.Drawing.Point(184, 240);
-            this.discountTextBox.Name = "discountTextBox";
-            this.discountTextBox.Size = new System.Drawing.Size(121, 22);
-            this.discountTextBox.TabIndex = 13;
-            // 
-            // stockLabel
-            // 
-            stockLabel.AutoSize = true;
-            stockLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            stockLabel.Location = new System.Drawing.Point(80, 217);
-            stockLabel.Name = "stockLabel";
-            stockLabel.Size = new System.Drawing.Size(102, 15);
-            stockLabel.TabIndex = 14;
-            stockLabel.Text = "Кол-во на складе:";
-            // 
-            // stockTextBox
-            // 
-            this.stockTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Stock", true));
-            this.stockTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.stockTextBox.Location = new System.Drawing.Point(184, 214);
-            this.stockTextBox.Name = "stockTextBox";
-            this.stockTextBox.Size = new System.Drawing.Size(121, 22);
-            this.stockTextBox.TabIndex = 15;
-            // 
-            // deskLabel
-            // 
-            deskLabel.AutoSize = true;
-            deskLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            deskLabel.Location = new System.Drawing.Point(80, 85);
-            deskLabel.Name = "deskLabel";
-            deskLabel.Size = new System.Drawing.Size(65, 15);
-            deskLabel.TabIndex = 16;
-            deskLabel.Text = "Описание:";
-            // 
-            // deskTextBox
-            // 
-            this.deskTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Desk", true));
-            this.deskTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.deskTextBox.Location = new System.Drawing.Point(184, 82);
-            this.deskTextBox.Name = "deskTextBox";
-            this.deskTextBox.Size = new System.Drawing.Size(121, 22);
-            this.deskTextBox.TabIndex = 17;
-            // 
-            // photoLabel
-            // 
-            photoLabel.AutoSize = true;
-            photoLabel.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            photoLabel.Location = new System.Drawing.Point(80, 6);
-            photoLabel.Name = "photoLabel";
-            photoLabel.Size = new System.Drawing.Size(39, 15);
-            photoLabel.TabIndex = 18;
-            photoLabel.Text = "Фото:";
-            // 
-            // photoTextBox
-            // 
-            this.photoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Photo", true));
-            this.photoTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.photoTextBox.Location = new System.Drawing.Point(184, 3);
-            this.photoTextBox.Name = "photoTextBox";
-            this.photoTextBox.Size = new System.Drawing.Size(121, 22);
-            this.photoTextBox.TabIndex = 19;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.BackColor = System.Drawing.Color.LightGray;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.saveButton.Location = new System.Drawing.Point(84, 281);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(222, 22);
-            this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Сохранить";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Visible = false;
             // 
             // CreateUpdateProductForm
             // 
@@ -406,8 +424,8 @@ namespace shoes.AppForms
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).EndInit();
             this.formSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,5 +451,6 @@ namespace shoes.AppForms
         private System.Windows.Forms.TextBox deskTextBox;
         private System.Windows.Forms.TextBox photoTextBox;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button deleteProductButton;
     }
 }

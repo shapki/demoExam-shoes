@@ -76,6 +76,12 @@
     <Compile Include="AppForms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForms\OrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\OrdersForm.Designer.cs">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\ParentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserRole.cs" />
     <Compile Include="Services\ValidationHelper.cs" />
     <Compile Include="Shapkin_DemoShoesDataSet.Designer.cs">
@@ -119,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\OrdersForm.resx">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
