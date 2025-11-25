@@ -15,6 +15,9 @@ namespace shoes.AppForms
         private string sortButtonText = "Сортировка по кол-ву ";
         private ProductService _productService;
 
+        UserRole adminRole = UserRole.Administrator;
+        UserRole managerRole = UserRole.Manager;
+
         public MainForm(string fullName, string role)
         {
             InitializeComponent();
@@ -33,13 +36,12 @@ namespace shoes.AppForms
 
         private void CheckUserRole()
         {
-            UserRole adminRole = UserRole.Administrator;
-            UserRole managerRole = UserRole.Manager;
             if (_role == adminRole.GetDescription() || _role == managerRole.GetDescription())
             {
                 filterComboBox.Visible = true;
                 sortButton.Visible = true;
                 searchTextBox.Visible = true;
+                ordersButton.Visible = true;
                 addProductButton.Visible = _role == adminRole.GetDescription();
                 formSplitContainer.Panel1.BackColor = System.Drawing.Color.White;
             }
@@ -58,7 +60,7 @@ namespace shoes.AppForms
 
             foreach (Product product in products)
             {
-                var productControl = new ProductUserControl(product);
+                var productControl = new ProductUserControl(product, _role);
                 productControl.ProductClicked += ProductControl_ProductClicked;
                 contentFlowLayoutPanel.Controls.Add(productControl);
             }
@@ -208,6 +210,12 @@ namespace shoes.AppForms
             var createForm = new CreateUpdateProductForm();
             createForm.ProductSaved += (s, product) => ShowProductsFilteredAndSorted();
             createForm.ShowDialog();
+        }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            OrdersForm orderForm = new OrdersForm(_role);
+            orderForm.ShowDialog();
         }
     }
 }

@@ -1,22 +1,27 @@
-﻿using System;
+﻿using shoes.Models;
+using shoes.Services;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using shoes.Models;
 
 namespace shoes.CustomControls
 {
     public partial class ProductUserControl : UserControl
     {
         private Product _product;
+        private string _role;
+        UserRole adminRole = UserRole.Administrator;
+        UserRole managerRole = UserRole.Manager;
 
         public event EventHandler<Product> ProductClicked;
 
-        public ProductUserControl(Product product)
+        public ProductUserControl(Product product, string role)
         {
             InitializeComponent();
             _product = product;
+            _role = role;
             SetLabelTextValues();
             SetProductPhoto();
             SetColorByValues();
@@ -25,6 +30,18 @@ namespace shoes.CustomControls
             foreach (Control control in this.Controls)
             {
                 control.Click += ProductUserControl_Click;
+            }
+        }
+
+        private void CheckUserRole()
+        {
+            if (_role == adminRole.GetDescription() || _role == managerRole.GetDescription())
+            {
+                this.Cursor = System.Windows.Forms.Cursors.Hand;
+            }
+            else
+            {
+                this.Cursor = System.Windows.Forms.Cursors.Default;
             }
         }
 
@@ -69,7 +86,8 @@ namespace shoes.CustomControls
             if (_product.Discount > 15)
             {
                 this.BackColor = Color.SeaGreen;
-            } else if (_product.Stock == 0)
+            }
+            else if (_product.Stock == 0)
             {
                 this.BackColor = Color.Cyan;
             }
@@ -112,7 +130,15 @@ namespace shoes.CustomControls
 
         private void ProductUserControl_Click(object sender, EventArgs e)
         {
-            ProductClicked?.Invoke(this, _product);
+            if (_role == adminRole.GetDescription() || _role == managerRole.GetDescription())
+            {
+                ProductClicked?.Invoke(this, _product);
+            }
+        }
+
+        private void ProductUserControl_Load(object sender, EventArgs e)
+        {
+            CheckUserRole();
         }
     }
 }

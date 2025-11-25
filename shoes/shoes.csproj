@@ -64,6 +64,12 @@
     <Compile Include="AppForms\AuthForm.Designer.cs">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppForms\CreateUpdateOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\CreateUpdateOrderForm.Designer.cs">
+      <DependentUpon>CreateUpdateOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\CreateUpdateProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="AppForms\ParentForm.Designer.cs">
       <DependentUpon>ParentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\OrderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\OrderUserControl.Designer.cs">
+      <DependentUpon>OrderUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\ProductUserControl.cs">
       <SubType>UserControl</SubType>
@@ -121,6 +133,9 @@
     <EmbeddedResource Include="AppForms\AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\CreateUpdateOrderForm.resx">
+      <DependentUpon>CreateUpdateOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForms\CreateUpdateProductForm.resx">
       <DependentUpon>CreateUpdateProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\OrderUserControl.resx">
+      <DependentUpon>OrderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>

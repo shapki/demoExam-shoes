@@ -79,7 +79,7 @@ namespace shoes.CustomControls
             this.priceLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.priceLabel.Location = new System.Drawing.Point(143, 78);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(42, 16);
+            this.priceLabel.Size = new System.Drawing.Size(43, 16);
             this.priceLabel.TabIndex = 3;
             this.priceLabel.Text = "Цена: ";
             // 
@@ -90,7 +90,7 @@ namespace shoes.CustomControls
             this.supplyerLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.supplyerLabel.Location = new System.Drawing.Point(144, 62);
             this.supplyerLabel.Name = "supplyerLabel";
-            this.supplyerLabel.Size = new System.Drawing.Size(80, 16);
+            this.supplyerLabel.Size = new System.Drawing.Size(81, 16);
             this.supplyerLabel.TabIndex = 5;
             this.supplyerLabel.Text = "Поставщик: ";
             // 
@@ -101,7 +101,7 @@ namespace shoes.CustomControls
             this.manufacturLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.manufacturLabel.Location = new System.Drawing.Point(144, 46);
             this.manufacturLabel.Name = "manufacturLabel";
-            this.manufacturLabel.Size = new System.Drawing.Size(102, 16);
+            this.manufacturLabel.Size = new System.Drawing.Size(103, 16);
             this.manufacturLabel.TabIndex = 6;
             this.manufacturLabel.Text = "Производитель: ";
             // 
@@ -112,7 +112,7 @@ namespace shoes.CustomControls
             this.stockLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.stockLabel.Location = new System.Drawing.Point(144, 110);
             this.stockLabel.Name = "stockLabel";
-            this.stockLabel.Size = new System.Drawing.Size(143, 16);
+            this.stockLabel.Size = new System.Drawing.Size(144, 16);
             this.stockLabel.TabIndex = 7;
             this.stockLabel.Text = "Количество на складе: ";
             // 
@@ -123,7 +123,7 @@ namespace shoes.CustomControls
             this.unitLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.unitLabel.Location = new System.Drawing.Point(144, 94);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(128, 16);
+            this.unitLabel.Size = new System.Drawing.Size(129, 16);
             this.unitLabel.TabIndex = 8;
             this.unitLabel.Text = "Единица измерения: ";
             // 
@@ -145,7 +145,7 @@ namespace shoes.CustomControls
             this.newPriceLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.newPriceLabel.Location = new System.Drawing.Point(230, 78);
             this.newPriceLabel.Name = "newPriceLabel";
-            this.newPriceLabel.Size = new System.Drawing.Size(42, 16);
+            this.newPriceLabel.Size = new System.Drawing.Size(43, 16);
             this.newPriceLabel.TabIndex = 10;
             this.newPriceLabel.Text = "Цена: ";
             this.newPriceLabel.Visible = false;
@@ -165,11 +165,12 @@ namespace shoes.CustomControls
             this.Controls.Add(this.deskLabel);
             this.Controls.Add(this.productPictureBox);
             this.Controls.Add(this.productNameLabel);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.Name = "ProductUserControl";
             this.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.Size = new System.Drawing.Size(654, 139);
+            this.Load += new System.EventHandler(this.ProductUserControl_Load);
             this.Click += new System.EventHandler(this.ProductUserControl_Click);
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
             this.ResumeLayout(false);

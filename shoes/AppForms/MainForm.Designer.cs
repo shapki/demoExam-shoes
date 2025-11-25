@@ -31,6 +31,8 @@ namespace shoes.AppForms
         {
             this.components = new System.ComponentModel.Container();
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.ordersButton = new System.Windows.Forms.Button();
+            this.addProductButton = new System.Windows.Forms.Button();
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.sortButton = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
@@ -44,7 +46,6 @@ namespace shoes.AppForms
             this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
             this.supplyerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplyerTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter();
-            this.addProductButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.formSplitContainer)).BeginInit();
             this.formSplitContainer.Panel1.SuspendLayout();
             this.formSplitContainer.Panel2.SuspendLayout();
@@ -67,6 +68,8 @@ namespace shoes.AppForms
             // formSplitContainer.Panel1
             // 
             this.formSplitContainer.Panel1.BackColor = System.Drawing.Color.Chartreuse;
+            this.formSplitContainer.Panel1.Controls.Add(this.ordersButton);
+            this.formSplitContainer.Panel1.Controls.Add(this.addProductButton);
             this.formSplitContainer.Panel1.Controls.Add(this.filterComboBox);
             this.formSplitContainer.Panel1.Controls.Add(this.sortButton);
             this.formSplitContainer.Panel1.Controls.Add(this.searchTextBox);
@@ -78,6 +81,36 @@ namespace shoes.AppForms
             this.formSplitContainer.Size = new System.Drawing.Size(678, 450);
             this.formSplitContainer.SplitterDistance = 96;
             this.formSplitContainer.TabIndex = 2;
+            // 
+            // ordersButton
+            // 
+            this.ordersButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ordersButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.ordersButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ordersButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.ordersButton.Location = new System.Drawing.Point(209, 72);
+            this.ordersButton.Name = "ordersButton";
+            this.ordersButton.Size = new System.Drawing.Size(60, 22);
+            this.ordersButton.TabIndex = 10;
+            this.ordersButton.Text = "Заказы";
+            this.ordersButton.UseVisualStyleBackColor = false;
+            this.ordersButton.Visible = false;
+            this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
+            // 
+            // addProductButton
+            // 
+            this.addProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addProductButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.addProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.addProductButton.Location = new System.Drawing.Point(122, 72);
+            this.addProductButton.Name = "addProductButton";
+            this.addProductButton.Size = new System.Drawing.Size(81, 22);
+            this.addProductButton.TabIndex = 9;
+            this.addProductButton.Text = "Доб. товар";
+            this.addProductButton.UseVisualStyleBackColor = false;
+            this.addProductButton.Visible = false;
+            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
             // 
             // filterComboBox
             // 
@@ -124,7 +157,6 @@ namespace shoes.AppForms
             // headerPanel
             // 
             this.headerPanel.BackColor = System.Drawing.Color.Chartreuse;
-            this.headerPanel.Controls.Add(this.addProductButton);
             this.headerPanel.Controls.Add(this.headerTitleLabel);
             this.headerPanel.Controls.Add(this.logOutButton);
             this.headerPanel.Controls.Add(this.headerLogoPictureBox);
@@ -216,21 +248,6 @@ namespace shoes.AppForms
             // 
             this.supplyerTableAdapter.ClearBeforeFill = true;
             // 
-            // addProductButton
-            // 
-            this.addProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addProductButton.BackColor = System.Drawing.Color.LightGray;
-            this.addProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.addProductButton.Location = new System.Drawing.Point(591, 43);
-            this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(81, 22);
-            this.addProductButton.TabIndex = 9;
-            this.addProductButton.Text = "Доб. товар";
-            this.addProductButton.UseVisualStyleBackColor = false;
-            this.addProductButton.Visible = false;
-            this.addProductButton.Click += new System.EventHandler(this.addProductButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +292,6 @@ namespace shoes.AppForms
         private System.Windows.Forms.BindingSource supplyerBindingSource;
         private Shapkin_DemoShoesDataSetTableAdapters.SupplyerTableAdapter supplyerTableAdapter;
         private System.Windows.Forms.Button addProductButton;
+        private System.Windows.Forms.Button ordersButton;
     }
 }
