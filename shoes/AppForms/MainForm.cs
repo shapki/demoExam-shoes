@@ -3,6 +3,7 @@ using shoes.Models;
 using shoes.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -53,17 +54,42 @@ namespace shoes.AppForms
 
         private void ShowProductsFilteredAndSorted()
         {
-            List<Product> products = GetFilteredProducts();
-            products = ApplySorting(products);
-
-            contentFlowLayoutPanel.Controls.Clear();
-
-            foreach (Product product in products)
+            using (var context = new ShoesModel())
             {
-                var productControl = new ProductUserControl(product, _role);
-                productControl.ProductClicked += ProductControl_ProductClicked;
-                contentFlowLayoutPanel.Controls.Add(productControl);
+                var products = GetFilteredProducts(context);
+                products = ApplySorting(products);
+
+                contentFlowLayoutPanel.Controls.Clear();
+
+                foreach (Product product in products)
+                {
+                    var productControl = new ProductUserControl(product, _role);
+                    productControl.ProductClicked += ProductControl_ProductClicked;
+                    contentFlowLayoutPanel.Controls.Add(productControl);
+                }
             }
+        }
+
+        private List<Product> GetFilteredProducts(ShoesModel context)
+        {
+            string selectedSupplier = filterComboBox.SelectedItem?.ToString();
+            var products = context.Product.AsQueryable();
+
+            if (!string.IsNullOrEmpty(selectedSupplier) && selectedSupplier != "Все поставщики")
+            {
+                var supplier = context.Supplyer.FirstOrDefault(s => s.Name == selectedSupplier);
+                if (supplier != null)
+                {
+                    products = products.Where(p => p.SupplyerId == supplier.IdSupplyer);
+                }
+            }
+
+            products = SearchProduct(products);
+
+            return products
+                .Include(p => p.Supplyer)
+                .Include(p => p.Manufacturer)
+                .ToList();
         }
 
         private void ProductControl_ProductClicked(object sender, Product product)
@@ -136,10 +162,13 @@ namespace shoes.AppForms
             filterComboBox.Items.Clear();
             filterComboBox.Items.Add("Все поставщики");
 
-            var suppliers = Program.context.Supplyer.OrderBy(s => s.Name).ToList();
-            foreach (var supplier in suppliers)
+            using (var context = new ShoesModel())
             {
-                filterComboBox.Items.Add(supplier.Name);
+                var suppliers = context.Supplyer.OrderBy(s => s.Name).ToList();
+                foreach (var supplier in suppliers)
+                {
+                    filterComboBox.Items.Add(supplier.Name);
+                }
             }
 
             filterComboBox.SelectedIndex = 0;

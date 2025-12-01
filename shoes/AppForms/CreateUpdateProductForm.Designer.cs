@@ -258,6 +258,7 @@ namespace shoes.AppForms
             // 
             // deleteProductButton
             // 
+            this.deleteProductButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteProductButton.BackColor = System.Drawing.Color.Red;
             this.deleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);

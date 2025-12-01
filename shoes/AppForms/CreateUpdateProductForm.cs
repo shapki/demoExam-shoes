@@ -39,15 +39,15 @@ namespace shoes.AppForms
             if (_isEditMode)
             {
                 this.Text += "Редактирование товара";
-                headerSubtitleLabel.Text = "Редактирование товара";
+                headerSubtitleLabel.Text = "Редактировние товара";
                 deleteProductButton.Visible = true;
                 LoadComboBoxData();
                 BindProductToControls();
             }
             else
             {
-                this.Text += "Добавление товара";
-                headerSubtitleLabel.Text = "Добавление товара";
+                this.Text += "Создание товара";
+                headerSubtitleLabel.Text = "Создание товара";
                 deleteProductButton.Visible = false;
                 saveButton.Text = "Добавить товар";
                 saveButton.Size = new System.Drawing.Size(221, 22);
@@ -93,7 +93,6 @@ namespace shoes.AppForms
             {
                 productNameTextBox.Text = _product.ProductName;
 
-                // Установка категории
                 if (!string.IsNullOrEmpty(_product.ProductCat))
                 {
                     productCatComboBox.SelectedItem = _product.ProductCat;
@@ -101,7 +100,6 @@ namespace shoes.AppForms
 
                 deskTextBox.Text = _product.Desk;
 
-                // Установка поставщика
                 if (_product.SupplyerId > 0)
                 {
                     var supplier = Program.context.Supplyer.Find(_product.SupplyerId);
@@ -111,7 +109,6 @@ namespace shoes.AppForms
                     }
                 }
 
-                // Установка производителя
                 if (_product.ManufacturerId > 0)
                 {
                     var manufacturer = Program.context.Manufacturer.Find(_product.ManufacturerId);

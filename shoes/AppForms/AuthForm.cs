@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Linq;
 using shoes.Services;
+using shoes.Models;
 
 namespace shoes.AppForms
 {
@@ -16,24 +17,32 @@ namespace shoes.AppForms
             string login = loginTextBox.Text.Trim();
             string password = passwordTextBox.Text;
 
-            if (ValidationHelper.ValidationLogin(login) == true && 
-                ValidationHelper.ValidationPassword(password) == true)
+            if (ValidationHelper.ValidationLogin(login) &&
+                ValidationHelper.ValidationPassword(password))
             {
-                var user = Program.context.User.FirstOrDefault(em => em.Login == login && em.Password == password);
+                using (var context = new ShoesModel())
+                {
+                    var user = context.User.FirstOrDefault(em =>
+                        em.Login == login && em.Password == password);
 
-                if (user != null)
-                {
-                    this.Hide();
-                    MainForm mainForm = new MainForm(user.FullName, user.Role);
-                    mainForm.ShowDialog();
+                    if (user != null)
+                    {
+                        this.Hide();
+                        MainForm mainForm = new MainForm(user.FullName, user.Role);
+                        mainForm.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такого пользователя в базе данных нет!",
+                            "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Такого пользователя в базе данных нет!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            } else
+            }
+            else
             {
-                MessageBox.Show("Некорректный формат логина или пароля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Некорректный формат логина или пароля!",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -42,6 +51,7 @@ namespace shoes.AppForms
             this.Hide();
             MainForm mainForm = new MainForm("Гостевой аккаунт", "Гость");
             mainForm.ShowDialog();
+            this.Show();
         }
     }
 }

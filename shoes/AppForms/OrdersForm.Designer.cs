@@ -139,6 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
+            this.MinimumSize = new System.Drawing.Size(694, 489);
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | Заказы";

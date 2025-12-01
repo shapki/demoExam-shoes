@@ -141,7 +141,7 @@ namespace shoes.AppForms
             // 
             // guestLogInButton
             // 
-            this.guestLogInButton.Location = new System.Drawing.Point(272, 39);
+            this.guestLogInButton.Location = new System.Drawing.Point(272, 33);
             this.guestLogInButton.Name = "guestLogInButton";
             this.guestLogInButton.Size = new System.Drawing.Size(92, 24);
             this.guestLogInButton.TabIndex = 5;

@@ -40,6 +40,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
+            this.deleteOrderButton = new System.Windows.Forms.Button();
             this.userIdComboBox = new System.Windows.Forms.ComboBox();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
@@ -152,6 +153,7 @@ namespace shoes.AppForms
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.AutoScroll = true;
+            this.formSplitContainer.Panel2.Controls.Add(this.deleteOrderButton);
             this.formSplitContainer.Panel2.Controls.Add(userIdLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.userIdComboBox);
             this.formSplitContainer.Panel2.Controls.Add(orderDateLabel);
@@ -165,7 +167,7 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel2.Controls.Add(statusLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.statusComboBox);
             this.formSplitContainer.Panel2.Controls.Add(this.saveButton);
-            this.formSplitContainer.Size = new System.Drawing.Size(376, 281);
+            this.formSplitContainer.Size = new System.Drawing.Size(395, 281);
             this.formSplitContainer.SplitterDistance = 80;
             this.formSplitContainer.TabIndex = 5;
             // 
@@ -200,15 +202,32 @@ namespace shoes.AppForms
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
             // 
+            // deleteOrderButton
+            // 
+            this.deleteOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteOrderButton.BackColor = System.Drawing.Color.Red;
+            this.deleteOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteOrderButton.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.deleteOrderButton.ForeColor = System.Drawing.Color.White;
+            this.deleteOrderButton.Location = new System.Drawing.Point(216, 162);
+            this.deleteOrderButton.Name = "deleteOrderButton";
+            this.deleteOrderButton.Size = new System.Drawing.Size(105, 22);
+            this.deleteOrderButton.TabIndex = 27;
+            this.deleteOrderButton.Text = "Удалить заказ";
+            this.deleteOrderButton.UseVisualStyleBackColor = false;
+            this.deleteOrderButton.Visible = false;
+            this.deleteOrderButton.Click += new System.EventHandler(this.deleteOrderButton_Click);
+            // 
             // userIdComboBox
             // 
             this.userIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "UserId", true));
+            this.userIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userIdComboBox.FormattingEnabled = true;
             this.userIdComboBox.Location = new System.Drawing.Point(158, 135);
             this.userIdComboBox.Name = "userIdComboBox";
-            this.userIdComboBox.Size = new System.Drawing.Size(144, 21);
+            this.userIdComboBox.Size = new System.Drawing.Size(163, 21);
             this.userIdComboBox.TabIndex = 26;
             // 
             // orderBindingSource
@@ -228,7 +247,7 @@ namespace shoes.AppForms
             this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "OrderDate", true));
             this.orderDateDateTimePicker.Location = new System.Drawing.Point(158, 83);
             this.orderDateDateTimePicker.Name = "orderDateDateTimePicker";
-            this.orderDateDateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.orderDateDateTimePicker.Size = new System.Drawing.Size(163, 20);
             this.orderDateDateTimePicker.TabIndex = 11;
             // 
             // deliveryDateDateTimePicker
@@ -238,7 +257,7 @@ namespace shoes.AppForms
             this.deliveryDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "UserId", true));
             this.deliveryDateDateTimePicker.Location = new System.Drawing.Point(158, 109);
             this.deliveryDateDateTimePicker.Name = "deliveryDateDateTimePicker";
-            this.deliveryDateDateTimePicker.Size = new System.Drawing.Size(144, 20);
+            this.deliveryDateDateTimePicker.Size = new System.Drawing.Size(163, 20);
             this.deliveryDateDateTimePicker.TabIndex = 13;
             // 
             // officeIdComboBox
@@ -246,10 +265,11 @@ namespace shoes.AppForms
             this.officeIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.officeIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "OfficeId", true));
+            this.officeIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.officeIdComboBox.FormattingEnabled = true;
             this.officeIdComboBox.Location = new System.Drawing.Point(158, 56);
             this.officeIdComboBox.Name = "officeIdComboBox";
-            this.officeIdComboBox.Size = new System.Drawing.Size(144, 21);
+            this.officeIdComboBox.Size = new System.Drawing.Size(163, 21);
             this.officeIdComboBox.TabIndex = 15;
             // 
             // codeTextBox
@@ -259,7 +279,7 @@ namespace shoes.AppForms
             this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Code", true));
             this.codeTextBox.Location = new System.Drawing.Point(158, 3);
             this.codeTextBox.Name = "codeTextBox";
-            this.codeTextBox.Size = new System.Drawing.Size(144, 20);
+            this.codeTextBox.Size = new System.Drawing.Size(163, 20);
             this.codeTextBox.TabIndex = 17;
             // 
             // statusComboBox
@@ -267,10 +287,11 @@ namespace shoes.AppForms
             this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Status", true));
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
             this.statusComboBox.Location = new System.Drawing.Point(158, 29);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(144, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(163, 21);
             this.statusComboBox.TabIndex = 19;
             // 
             // saveButton
@@ -282,9 +303,9 @@ namespace shoes.AppForms
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.saveButton.Location = new System.Drawing.Point(69, 162);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(233, 22);
+            this.saveButton.Size = new System.Drawing.Size(141, 22);
             this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Сохранить изменения";
+            this.saveButton.Text = "Сохранить изм.";
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -308,7 +329,7 @@ namespace shoes.AppForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 281);
+            this.ClientSize = new System.Drawing.Size(395, 281);
             this.Controls.Add(this.formSplitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MinimumSize = new System.Drawing.Size(392, 320);
@@ -346,5 +367,6 @@ namespace shoes.AppForms
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox userIdComboBox;
+        private System.Windows.Forms.Button deleteOrderButton;
     }
 }

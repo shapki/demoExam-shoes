@@ -1,4 +1,5 @@
-﻿using shoes.Models;
+﻿using shoes.AppForms;
+using shoes.Models;
 using shoes.Services;
 using System;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace shoes.CustomControls
         private Order _order;
         private string _role;
         UserRole adminRole = UserRole.Administrator;
-        UserRole managerRole = UserRole.Manager;
 
         public event EventHandler<Order> OrderClicked;
 
@@ -30,7 +30,7 @@ namespace shoes.CustomControls
 
         private void CheckUserRole()
         {
-            if (_role == adminRole.GetDescription() || _role == managerRole.GetDescription())
+            if (_role == adminRole.GetDescription())
             {
                 this.Cursor = System.Windows.Forms.Cursors.Hand;
             }
@@ -80,9 +80,14 @@ namespace shoes.CustomControls
 
         private void OrderUserControl_Click(object sender, EventArgs e)
         {
-            if (_role == adminRole.GetDescription() || _role == managerRole.GetDescription())
+            if (_role == adminRole.GetDescription())
             {
-                OrderClicked?.Invoke(this, _order);
+                var editForm = new CreateUpdateOrderForm(_order);
+                editForm.OrderSaved += (s, updatedOrder) =>
+                {
+                    OrderClicked?.Invoke(this, updatedOrder);
+                };
+                editForm.ShowDialog();
             }
         }
 
