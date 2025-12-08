@@ -14,6 +14,11 @@ namespace shoes.Services
             _context = context;
         }
 
+        /// <summary>
+        /// PKGH: Создание нового заказа с валидацией данных
+        /// </summary>
+        /// <param name="order">Объект заказа для создания</param>
+        /// <returns>True если заказ успешно создан, иначе False</returns>
         public bool CreateOrder(Order order)
         {
             try
@@ -21,9 +26,19 @@ namespace shoes.Services
                 if (!ValidateOrder(order))
                     return false;
 
-                if (order.Code != 0 && _context.Order.Any(o => o.Code == order.Code))
+                if (order.Code != 0)
                 {
-                    MessageBox.Show("Заказ с таким артикулом уже существует", "Ошибка",
+                    bool codeExists = _context.Order.Any(o => o.Code == order.Code);
+                    if (codeExists)
+                    {
+                        MessageBox.Show($"Заказ с артикулом '{order.Code}' уже существует", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Артикул не может быть пустым или равным 0", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
@@ -40,6 +55,11 @@ namespace shoes.Services
             }
         }
 
+        /// <summary>
+        /// PKGH: Обновление существующего заказа
+        /// </summary>
+        /// <param name="order">Объект заказа с обновленными данными</param>
+        /// <returns>True если заказ успешно обновлен, иначе False</returns>
         public bool UpdateOrder(Order order)
         {
             try
@@ -50,16 +70,20 @@ namespace shoes.Services
                 var existingOrder = _context.Order.Find(order.IdOrder);
                 if (existingOrder != null)
                 {
-                    if (order.Code == 0)
+                    if (order.Code != 0 && order.Code != existingOrder.Code)
                     {
-                        order.Code = existingOrder.Code;
+                        bool codeExists = _context.Order.Any(o => o.Code == order.Code && o.IdOrder != order.IdOrder);
+                        if (codeExists)
+                        {
+                            MessageBox.Show($"Артикул '{order.Code}' уже используется другим заказом", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
                     }
 
                     _context.Entry(existingOrder).CurrentValues.SetValues(order);
                     _context.SaveChanges();
 
-                    MessageBox.Show("Заказ успешно обновлен", "Успех",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
 
@@ -85,6 +109,11 @@ namespace shoes.Services
             }
         }
 
+        /// <summary>
+        /// PKGH: Удаление заказа с обработкой связанных товаров
+        /// </summary>
+        /// <param name="orderId">ID заказа для удаления</param>
+        /// <returns>True если заказ успешно удален, иначе False</returns>ы
         public bool DeleteOrder(int orderId)
         {
             try
@@ -92,27 +121,6 @@ namespace shoes.Services
                 var order = _context.Order.Find(orderId);
                 if (order != null)
                 {
-                    var hasProducts = _context.OrderProduct.Any(op => op.OrderId == orderId);
-
-                    if (hasProducts)
-                    {
-                        var result = MessageBox.Show(
-                            "У этого заказа есть связанные товары. Удалить заказ вместе с товарами?",
-                            "Подтверждение удаления",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Warning);
-
-                        if (result == DialogResult.Yes)
-                        {
-                            var orderProducts = _context.OrderProduct.Where(op => op.OrderId == orderId).ToList();
-                            _context.OrderProduct.RemoveRange(orderProducts);
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-
                     _context.Order.Remove(order);
                     _context.SaveChanges();
 
@@ -133,58 +141,20 @@ namespace shoes.Services
             }
         }
 
-        public Order GetOrderById(int orderId)
-        {
-            try
-            {
-                return _context.Order
-                    .Include("Office")
-                    .Include("User")
-                    .FirstOrDefault(o => o.IdOrder == orderId);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public IQueryable<Order> GetAllOrders()
-        {
-            return _context.Order
-                .Include("Office")
-                .Include("User")
-                .OrderByDescending(o => o.OrderDate);
-        }
-
-        public IQueryable<Order> GetOrdersByStatus(string status)
-        {
-            return _context.Order
-                .Include("Office")
-                .Include("User")
-                .Where(o => o.Status == status)
-                .OrderByDescending(o => o.OrderDate);
-        }
-
-        public IQueryable<Order> GetOrdersByUserId(int userId)
-        {
-            return _context.Order
-                .Include("Office")
-                .Include("User")
-                .Where(o => o.UserId == userId)
-                .OrderByDescending(o => o.OrderDate);
-        }
-
-        public IQueryable<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
-        {
-            return _context.Order
-                .Include("Office")
-                .Include("User")
-                .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
-                .OrderByDescending(o => o.OrderDate);
-        }
-
+        /// <summary>
+        /// PKGH: Валидация данных заказа перед сохранением
+        /// </summary>
+        /// <param name="order">Объект заказа для валидации</param>
+        /// <returns>True если валидация успешна, иначе False</returns>
         private bool ValidateOrder(Order order)
         {
+            if (order.Code <= 0)
+            {
+                MessageBox.Show("Артикул должен быть положительным числом (больше 0)", "Ошибка валидации",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(order.Status))
             {
                 MessageBox.Show("Статус заказа не может быть пустым", "Ошибка валидации",

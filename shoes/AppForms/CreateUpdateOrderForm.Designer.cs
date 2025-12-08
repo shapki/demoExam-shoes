@@ -69,7 +69,7 @@ namespace shoes.AppForms
             // 
             // orderDateLabel
             // 
-            orderDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            orderDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             orderDateLabel.AutoSize = true;
             orderDateLabel.Location = new System.Drawing.Point(66, 89);
@@ -80,7 +80,7 @@ namespace shoes.AppForms
             // 
             // deliveryDateLabel
             // 
-            deliveryDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            deliveryDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             deliveryDateLabel.AutoSize = true;
             deliveryDateLabel.Location = new System.Drawing.Point(66, 115);
@@ -91,7 +91,7 @@ namespace shoes.AppForms
             // 
             // officeIdLabel
             // 
-            officeIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            officeIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             officeIdLabel.AutoSize = true;
             officeIdLabel.Location = new System.Drawing.Point(66, 61);
@@ -102,7 +102,7 @@ namespace shoes.AppForms
             // 
             // codeLabel
             // 
-            codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             codeLabel.AutoSize = true;
             codeLabel.Location = new System.Drawing.Point(66, 8);
@@ -113,7 +113,7 @@ namespace shoes.AppForms
             // 
             // statusLabel
             // 
-            statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             statusLabel.AutoSize = true;
             statusLabel.Location = new System.Drawing.Point(66, 34);
@@ -124,7 +124,7 @@ namespace shoes.AppForms
             // 
             // userIdLabel
             // 
-            userIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            userIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             userIdLabel.AutoSize = true;
             userIdLabel.Location = new System.Drawing.Point(66, 138);
@@ -220,7 +220,7 @@ namespace shoes.AppForms
             // 
             // userIdComboBox
             // 
-            this.userIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.userIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "UserId", true));
             this.userIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -242,7 +242,7 @@ namespace shoes.AppForms
             // 
             // orderDateDateTimePicker
             // 
-            this.orderDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.orderDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "OrderDate", true));
             this.orderDateDateTimePicker.Location = new System.Drawing.Point(158, 83);
@@ -252,7 +252,7 @@ namespace shoes.AppForms
             // 
             // deliveryDateDateTimePicker
             // 
-            this.deliveryDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.deliveryDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deliveryDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "UserId", true));
             this.deliveryDateDateTimePicker.Location = new System.Drawing.Point(158, 109);
@@ -262,7 +262,7 @@ namespace shoes.AppForms
             // 
             // officeIdComboBox
             // 
-            this.officeIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.officeIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.officeIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "OfficeId", true));
             this.officeIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -274,7 +274,7 @@ namespace shoes.AppForms
             // 
             // codeTextBox
             // 
-            this.codeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.codeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Code", true));
             this.codeTextBox.Location = new System.Drawing.Point(158, 3);
@@ -284,7 +284,7 @@ namespace shoes.AppForms
             // 
             // statusComboBox
             // 
-            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Status", true));
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -296,7 +296,7 @@ namespace shoes.AppForms
             // 
             // saveButton
             // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.BackColor = System.Drawing.Color.LightGray;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;

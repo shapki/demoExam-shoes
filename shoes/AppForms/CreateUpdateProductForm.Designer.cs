@@ -40,6 +40,7 @@ namespace shoes.AppForms
             System.Windows.Forms.Label stockLabel;
             System.Windows.Forms.Label deskLabel;
             System.Windows.Forms.Label photoLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateUpdateProductForm));
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
@@ -231,7 +232,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(143, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(142, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Редактирование товара";
             // 
@@ -412,6 +413,7 @@ namespace shoes.AppForms
             this.ClientSize = new System.Drawing.Size(376, 399);
             this.Controls.Add(this.formSplitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(392, 189);
             this.Name = "CreateUpdateProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

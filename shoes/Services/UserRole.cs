@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace shoes.Services
 {
+    /// <summary>
+    /// PKGH: Список ролей пользователей
+    /// </summary>
     public enum UserRole
     {
         [Description("Администратор")]
@@ -14,6 +17,11 @@ namespace shoes.Services
 
     public static class EnumExtensions
     {
+        /// <summary>
+        /// PKGH: Получение описания значения из Description
+        /// </summary>
+        /// <param name="value">Значение</param>
+        /// <returns>Описание значения или его строчный вид</returns>
         public static string GetDescription(this System.Enum value)
         {
             var fieldInfo = value.GetType().GetField(value.ToString());

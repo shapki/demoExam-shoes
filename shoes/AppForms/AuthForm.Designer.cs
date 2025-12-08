@@ -32,6 +32,7 @@ namespace shoes.AppForms
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label loginLabel;
             System.Windows.Forms.Label passwordLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
             this.headerSubtitleLabel = new System.Windows.Forms.Label();
             this.headerTitleLabel = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@ namespace shoes.AppForms
             loginLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             loginLabel.Location = new System.Drawing.Point(3, 10);
             loginLabel.Name = "loginLabel";
-            loginLabel.Size = new System.Drawing.Size(48, 16);
+            loginLabel.Size = new System.Drawing.Size(47, 16);
             loginLabel.TabIndex = 0;
             loginLabel.Text = "Логин:";
             // 
@@ -75,7 +76,7 @@ namespace shoes.AppForms
             passwordLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             passwordLabel.Location = new System.Drawing.Point(3, 36);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(53, 16);
+            passwordLabel.Size = new System.Drawing.Size(52, 16);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Пароль:";
             // 
@@ -114,7 +115,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(82, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(81, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Авторизация";
             // 
@@ -212,6 +213,7 @@ namespace shoes.AppForms
             this.ClientSize = new System.Drawing.Size(376, 150);
             this.Controls.Add(this.formSplitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(392, 189);
             this.MinimumSize = new System.Drawing.Size(392, 189);

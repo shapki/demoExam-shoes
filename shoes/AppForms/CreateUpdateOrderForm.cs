@@ -66,10 +66,12 @@ namespace shoes.AppForms
             orderDateDateTimePicker.Value = DateTime.Now;
             deliveryDateDateTimePicker.Value = DateTime.Now.AddDays(3);
             statusComboBox.SelectedItem = "Новый";
-            codeTextBox.Text = GenerateOrderCode().ToString();
             _order.DeliveryDate = DateTime.Now.AddDays(3);
         }
 
+        /// <summary>
+        /// PKGH: Загрузка данных в выпадающие списки
+        /// </summary>
         private void LoadComboBoxData()
         {
             try
@@ -111,6 +113,9 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Привязка данных заказа к элементам формы
+        /// </summary>
         private void BindOrderToControls()
         {
             try
@@ -169,19 +174,6 @@ namespace shoes.AppForms
             }
         }
 
-        private int GenerateOrderCode()
-        {
-            var random = new Random();
-            return random.Next(1000, 9999);
-        }
-
-        private void orderBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.orderBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.shapkin_DemoShoesDataSet);
-        }
-
         private void CreateUpdateOrderForm_Load(object sender, EventArgs e)
         {
             if (!_isEditMode)
@@ -206,7 +198,6 @@ namespace shoes.AppForms
                     {
                         if (string.IsNullOrEmpty(codeTextBox.Text) || !int.TryParse(codeTextBox.Text, out _))
                         {
-                            _order.Code = GenerateOrderCode();
                             codeTextBox.Text = _order.Code.ToString();
                         }
                         success = _orderService.CreateOrder(_order);
@@ -228,29 +219,70 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Валидация и обновление данных заказа из элементов формы
+        /// </summary>
+        /// <returns>True если валидация успешна, иначе False</returns>
         private bool ValidateAndUpdateOrder()
         {
             try
             {
-                if (!string.IsNullOrEmpty(codeTextBox.Text))
+                if (string.IsNullOrWhiteSpace(codeTextBox.Text))
                 {
-                    if (int.TryParse(codeTextBox.Text, out int code) && code > 0)
+                    MessageBox.Show("Артикул не может быть пустым", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    codeTextBox.Focus();
+                    return false;
+                }
+
+                if (!int.TryParse(codeTextBox.Text, out int code) || code <= 0)
+                {
+                    MessageBox.Show("Артикул должен быть положительным числом", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    codeTextBox.Focus();
+                    codeTextBox.SelectAll();
+                    return false;
+                }
+
+                if (!_isEditMode)
+                {
+                    using (var context = new ShoesModel())
                     {
-                        _order.Code = code;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Артикул должен быть положительным числом", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return false;
+                        bool codeExists = context.Order.Any(o => o.Code == code);
+                        if (codeExists)
+                        {
+                            MessageBox.Show($"Заказ с артикулом '{code}' уже существует", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            codeTextBox.Focus();
+                            codeTextBox.SelectAll();
+                            return false;
+                        }
                     }
                 }
+                else if (_order != null)
+                {
+                    using (var context = new ShoesModel())
+                    {
+                        bool codeExists = context.Order.Any(o => o.Code == code && o.IdOrder != _order.IdOrder);
+                        if (codeExists)
+                        {
+                            MessageBox.Show($"Артикул '{code}' уже используется другим заказом", "Ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            codeTextBox.Focus();
+                            codeTextBox.SelectAll();
+                            return false;
+                        }
+                    }
+                }
+
+                _order.Code = code;
 
                 _order.Status = statusComboBox.Text?.Trim();
                 if (string.IsNullOrEmpty(_order.Status))
                 {
                     MessageBox.Show("Выберите статус заказа", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    statusComboBox.Focus();
                     return false;
                 }
 
@@ -269,22 +301,21 @@ namespace shoes.AppForms
                 {
                     MessageBox.Show("Выберите пункт выдачи", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    officeIdComboBox.Focus();
                     return false;
                 }
 
-                // Даты
                 _order.OrderDate = orderDateDateTimePicker.Value.Date;
                 _order.DeliveryDate = deliveryDateDateTimePicker.Value.Date;
 
-                // Проверяем только если DeliveryDate не минимальная дата
                 if (_order.DeliveryDate != DateTime.MinValue && _order.DeliveryDate < _order.OrderDate)
                 {
                     MessageBox.Show("Дата доставки не может быть раньше даты заказа", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    deliveryDateDateTimePicker.Focus();
                     return false;
                 }
 
-                // Пользователь
                 if (userIdComboBox.SelectedValue != null)
                 {
                     if (userIdComboBox.SelectedValue is int userId)
@@ -300,6 +331,7 @@ namespace shoes.AppForms
                 {
                     MessageBox.Show("Выберите пользователя", "Ошибка",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    userIdComboBox.Focus();
                     return false;
                 }
 

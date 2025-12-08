@@ -52,6 +52,9 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Загрузка и отображение товаров
+        /// </summary>ы
         private void ShowProductsFilteredAndSorted()
         {
             using (var context = new ShoesModel())
@@ -70,6 +73,11 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Фильтрация товаров по поставщику и поиску
+        /// </summary>
+        /// <param name="context">Контекст бд</param>
+        /// <returns>Отфильтрованный список товаров</returns>
         private List<Product> GetFilteredProducts(ShoesModel context)
         {
             string selectedSupplier = filterComboBox.SelectedItem?.ToString();
@@ -118,6 +126,11 @@ namespace shoes.AppForms
             return products.ToList();
         }
 
+        /// <summary>
+        /// PKGH: Поиск товаров по запросу в различных полях
+        /// </summary>
+        /// <param name="products">Запрос товаров для фильтрации</param>
+        /// <returns>Запрос с применённым поиском</returns>
         private IQueryable<Product> SearchProduct(IQueryable<Product> products)
         {
             string searchText = searchTextBox.Text.Trim().ToLower();
@@ -136,6 +149,11 @@ namespace shoes.AppForms
             return products;
         }
 
+        /// <summary>
+        /// PKGH: Применение сортировки к списку товаров
+        /// </summary>
+        /// <param name="products">Список товаров для сортировки</param>
+        /// <returns>Отсортированный список товаров</returns>
         private List<Product> ApplySorting(List<Product> products)
         {
             switch (sortMode)

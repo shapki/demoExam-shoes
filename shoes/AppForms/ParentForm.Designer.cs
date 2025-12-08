@@ -29,6 +29,7 @@ namespace shoes.AppForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParentForm));
             this.contentFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.headerLogoPictureBox = new System.Windows.Forms.PictureBox();
             this.headerTitleLabel = new System.Windows.Forms.Label();
@@ -48,17 +49,19 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentFlowLayoutPanel.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.contentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.contentFlowLayoutPanel.Name = "contentFlowLayoutPanel";
-            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 366);
+            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(791, 422);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
             // headerLogoPictureBox
             // 
             this.headerLogoPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.headerLogoPictureBox.Image = global::shoes.Properties.Resources.Icon2;
-            this.headerLogoPictureBox.Location = new System.Drawing.Point(5, 5);
+            this.headerLogoPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.headerLogoPictureBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.headerLogoPictureBox.Name = "headerLogoPictureBox";
-            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 70);
+            this.headerLogoPictureBox.Size = new System.Drawing.Size(82, 80);
             this.headerLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
@@ -67,7 +70,8 @@ namespace shoes.AppForms
             // 
             this.headerTitleLabel.AutoSize = true;
             this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(81, 23);
+            this.headerTitleLabel.Location = new System.Drawing.Point(94, 27);
+            this.headerTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headerTitleLabel.Name = "headerTitleLabel";
             this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
             this.headerTitleLabel.TabIndex = 1;
@@ -77,9 +81,10 @@ namespace shoes.AppForms
             // 
             this.headerSubtitleLabel.AutoSize = true;
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
+            this.headerSubtitleLabel.Location = new System.Drawing.Point(94, 53);
+            this.headerSubtitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -88,6 +93,7 @@ namespace shoes.AppForms
             this.formSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formSplitContainer.IsSplitterFixed = true;
             this.formSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.formSplitContainer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.formSplitContainer.Name = "formSplitContainer";
             this.formSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -97,21 +103,25 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel1.Controls.Add(this.headerSubtitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerTitleLabel);
             this.formSplitContainer.Panel1.Controls.Add(this.headerLogoPictureBox);
-            this.formSplitContainer.Panel1.Padding = new System.Windows.Forms.Padding(5);
+            this.formSplitContainer.Panel1.Padding = new System.Windows.Forms.Padding(6);
             // 
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.Controls.Add(this.contentFlowLayoutPanel);
-            this.formSplitContainer.Size = new System.Drawing.Size(678, 450);
-            this.formSplitContainer.SplitterDistance = 80;
+            this.formSplitContainer.Size = new System.Drawing.Size(791, 519);
+            this.formSplitContainer.SplitterDistance = 92;
+            this.formSplitContainer.SplitterWidth = 5;
             this.formSplitContainer.TabIndex = 3;
             // 
             // ParentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 450);
+            this.ClientSize = new System.Drawing.Size(791, 519);
             this.Controls.Add(this.formSplitContainer);
+            this.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ParentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\"";

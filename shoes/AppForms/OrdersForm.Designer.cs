@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdersForm));
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
             this.addOrderButton = new System.Windows.Forms.Button();
             this.headerPanel = new System.Windows.Forms.Panel();
@@ -118,7 +119,7 @@
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 40);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(43, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(42, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Зказы";
             // 
@@ -139,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(694, 489);
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

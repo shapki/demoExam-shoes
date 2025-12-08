@@ -30,6 +30,7 @@ namespace shoes.AppForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.formSplitContainer = new System.Windows.Forms.SplitContainer();
             this.ordersButton = new System.Windows.Forms.Button();
             this.addProductButton = new System.Windows.Forms.Button();
@@ -219,7 +220,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 40);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -255,6 +256,7 @@ namespace shoes.AppForms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(678, 450);
             this.Controls.Add(this.formSplitContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(694, 489);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

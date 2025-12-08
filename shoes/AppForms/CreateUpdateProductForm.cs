@@ -58,7 +58,6 @@ namespace shoes.AppForms
 
         private void LoadComboBoxData()
         {
-            // Загрузка поставщиков
             var suppliers = Program.context.Supplyer
                 .OrderBy(s => s.Name)
                 .ToList();
@@ -67,7 +66,6 @@ namespace shoes.AppForms
             supplyerIdComboBox.DisplayMember = "Name";
             supplyerIdComboBox.ValueMember = "IdSupplyer";
 
-            // Загрузка производителей
             var manufacturers = Program.context.Manufacturer
                 .OrderBy(m => m.Name)
                 .ToList();
@@ -76,7 +74,6 @@ namespace shoes.AppForms
             manufacturerIdComboBox.DisplayMember = "Name";
             manufacturerIdComboBox.ValueMember = "IdManufacturer";
 
-            // Загрузка категорий из существующих товаров
             var categories = Program.context.Product
                 .Where(p => p.ProductCat != null)
                 .Select(p => p.ProductCat)
@@ -189,7 +186,6 @@ namespace shoes.AppForms
         {
             try
             {
-                // Генерация SCU для нового товара
                 if (!_isEditMode)
                 {
                     _product.Scu = GenerateNewScu();
@@ -197,7 +193,6 @@ namespace shoes.AppForms
 
                 _product.ProductName = productNameTextBox.Text.Trim();
 
-                // Обработка категории
                 if (!string.IsNullOrEmpty(productCatComboBox.Text))
                 {
                     _product.ProductCat = productCatComboBox.Text.Trim();
@@ -211,7 +206,6 @@ namespace shoes.AppForms
                 _product.Desk = deskTextBox.Text.Trim();
                 _product.Unit = unitTextBox.Text.Trim();
 
-                // Обработка поставщика
                 if (!string.IsNullOrEmpty(supplyerIdComboBox.Text))
                 {
                     var supplierName = supplyerIdComboBox.Text.Trim();
@@ -223,8 +217,7 @@ namespace shoes.AppForms
                     }
                     else
                     {
-                        // Создание нового поставщика с валидацией
-                        if (supplierName.Length <= 70) // Соответствует StringLength(70) в модели
+                        if (supplierName.Length <= 70)
                         {
                             var newSupplier = new Supplyer { Name = supplierName };
                             Program.context.Supplyer.Add(newSupplier);
@@ -248,7 +241,6 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                // Обработка производителя
                 if (!string.IsNullOrEmpty(manufacturerIdComboBox.Text))
                 {
                     var manufacturerName = manufacturerIdComboBox.Text.Trim();
@@ -260,8 +252,7 @@ namespace shoes.AppForms
                     }
                     else
                     {
-                        // Создание нового производителя с валидацией
-                        if (manufacturerName.Length <= 70) // Соответствует StringLength(70) в модели
+                        if (manufacturerName.Length <= 70)
                         {
                             var newManufacturer = new Manufacturer { Name = manufacturerName };
                             Program.context.Manufacturer.Add(newManufacturer);
@@ -285,7 +276,6 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                // Валидация цены
                 if (double.TryParse(priceTextBox.Text, out double price) && price >= 0)
                 {
                     _product.Price = price;
@@ -307,7 +297,6 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                // Валидация скидки
                 if (double.TryParse(discountTextBox.Text, out double discount) && discount >= 0 && discount <= 100)
                 {
                     _product.Discount = discount;
@@ -318,7 +307,6 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                // Валидация фото (необязательное поле)
                 _product.Photo = string.IsNullOrEmpty(photoTextBox.Text) ? null : photoTextBox.Text.Trim();
 
                 return true;
@@ -331,13 +319,16 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Генерация уникального артикула для нового товара
+        /// </summary>
+        /// <returns>Сгенерированный уникальный артикул</returns>
         private string GenerateNewScu()
         {
             var random = new Random();
             const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             const string digits = "0123456789";
 
-            // Генерация артикула в формате: буква-3цифры-буква-цифра
             string GenerateScu()
             {
                 char firstLetter = letters[random.Next(letters.Length)];
@@ -351,7 +342,6 @@ namespace shoes.AppForms
 
             string newScu = GenerateScu();
 
-            // Проверка на уникальность
             int attempts = 0;
             while (Program.context.Product.Any(p => p.Scu == newScu) && attempts < 20)
             {
@@ -359,10 +349,9 @@ namespace shoes.AppForms
                 attempts++;
             }
 
-            // Альтернативный метод
             if (attempts >= 20)
             {
-                string timestamp = DateTime.Now.ToString("fff"); // миллисекунды
+                string timestamp = DateTime.Now.ToString("fff");
                 newScu = $"{letters[random.Next(letters.Length)]}{timestamp}{letters[random.Next(letters.Length)]}{random.Next(10)}";
 
                 if (newScu.Length > 6)

@@ -34,6 +34,9 @@ namespace shoes.AppForms
             }
         }
 
+        /// <summary>
+        /// PKGH: Загрузка всех заказов из бд
+        /// </summary>
         private void LoadOrders()
         {
             try
@@ -78,11 +81,6 @@ namespace shoes.AppForms
                 };
                 createForm.ShowDialog();
             }
-        }
-
-        public void RefreshOrders()
-        {
-            LoadOrders();
         }
 
         private void OrdersForm_Load(object sender, EventArgs e)

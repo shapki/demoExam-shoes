@@ -14,6 +14,11 @@ namespace shoes.Services
             _context = context;
         }
 
+        /// <summary>
+        /// PKGH: Создание нового товара с валидацией полей
+        /// </summary>
+        /// <param name="product">Товар для создания</param>
+        /// <returns>True если товар успешно создан, иначе False</returns>
         public bool CreateProduct(Product product)
         {
             try
@@ -65,6 +70,11 @@ namespace shoes.Services
             }
         }
 
+        /// <summary>
+        /// PKGH: Обновление существующего товара
+        /// </summary>
+        /// <param name="product">Товар с обновлёнными данными</param>
+        /// <returns>True если товар успешно обновлен, иначе False</returns>
         public bool UpdateProduct(Product product)
         {
             if (!ValidateProduct(product))
@@ -89,6 +99,11 @@ namespace shoes.Services
             }
         }
 
+        /// <summary>
+        /// PKGH: Удаление товара по ID
+        /// </summary>
+        /// <param name="productId">ID товара для удаления</param>
+        /// <returns>True если товар успешно удален, иначе False</returns>
         public bool DeleteProduct(int productId)
         {
             try
@@ -110,6 +125,11 @@ namespace shoes.Services
             }
         }
 
+        /// <summary>
+        /// PKGH: Валидация данных товара перед сохранением
+        /// </summary>
+        /// <param name="product">Товар для валидации</param>
+        /// <returns>True если валидация успешна, иначе False</returns>
         private bool ValidateProduct(Product product)
         {
             if (string.IsNullOrWhiteSpace(product.ProductName))
