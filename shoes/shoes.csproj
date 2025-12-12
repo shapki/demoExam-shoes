@@ -188,6 +188,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Docs\script.sql" />
+    <Content Include="Resources\###Надо.txt" />
+    <Content Include="Resources\db_schema.png" />
+    <Content Include="Resources\script.sql" />
     <None Include="Resources\Icon.ico" />
     <None Include="Resources\Icon.png" />
     <None Include="Resources\Icon.JPG" />

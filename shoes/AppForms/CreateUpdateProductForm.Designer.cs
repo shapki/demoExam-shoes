@@ -50,7 +50,6 @@ namespace shoes.AppForms
             this.productNameTextBox = new System.Windows.Forms.TextBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapkin_DemoShoesDataSet = new shoes.Shapkin_DemoShoesDataSet();
-            this.unitTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.supplyerIdComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerIdComboBox = new System.Windows.Forms.ComboBox();
@@ -61,6 +60,7 @@ namespace shoes.AppForms
             this.photoTextBox = new System.Windows.Forms.TextBox();
             this.productTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager();
+            this.unitComboBox = new System.Windows.Forms.ComboBox();
             productNameLabel = new System.Windows.Forms.Label();
             unitLabel = new System.Windows.Forms.Label();
             priceLabel = new System.Windows.Forms.Label();
@@ -200,12 +200,12 @@ namespace shoes.AppForms
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.AutoScroll = true;
+            this.formSplitContainer.Panel2.Controls.Add(this.unitComboBox);
             this.formSplitContainer.Panel2.Controls.Add(this.deleteProductButton);
             this.formSplitContainer.Panel2.Controls.Add(this.saveButton);
             this.formSplitContainer.Panel2.Controls.Add(productNameLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.productNameTextBox);
             this.formSplitContainer.Panel2.Controls.Add(unitLabel);
-            this.formSplitContainer.Panel2.Controls.Add(this.unitTextBox);
             this.formSplitContainer.Panel2.Controls.Add(priceLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.priceTextBox);
             this.formSplitContainer.Panel2.Controls.Add(supplyerIdLabel);
@@ -232,7 +232,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(142, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(143, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Редактирование товара";
             // 
@@ -305,15 +305,6 @@ namespace shoes.AppForms
             this.shapkin_DemoShoesDataSet.DataSetName = "Shapkin_DemoShoesDataSet";
             this.shapkin_DemoShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // unitTextBox
-            // 
-            this.unitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
-            this.unitTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
-            this.unitTextBox.Location = new System.Drawing.Point(184, 188);
-            this.unitTextBox.Name = "unitTextBox";
-            this.unitTextBox.Size = new System.Drawing.Size(121, 22);
-            this.unitTextBox.TabIndex = 3;
-            // 
             // priceTextBox
             // 
             this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Price", true));
@@ -326,6 +317,7 @@ namespace shoes.AppForms
             // supplyerIdComboBox
             // 
             this.supplyerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "SupplyerId", true));
+            this.supplyerIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.supplyerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.supplyerIdComboBox.FormattingEnabled = true;
             this.supplyerIdComboBox.Location = new System.Drawing.Point(184, 108);
@@ -336,6 +328,7 @@ namespace shoes.AppForms
             // manufacturerIdComboBox
             // 
             this.manufacturerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "ManufacturerId", true));
+            this.manufacturerIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.manufacturerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.manufacturerIdComboBox.FormattingEnabled = true;
             this.manufacturerIdComboBox.Location = new System.Drawing.Point(184, 135);
@@ -406,6 +399,18 @@ namespace shoes.AppForms
             this.tableAdapterManager.UpdateOrder = shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserTableAdapter = null;
             // 
+            // unitComboBox
+            // 
+            this.unitComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
+            this.unitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.unitComboBox.FormattingEnabled = true;
+            this.unitComboBox.Items.AddRange(new object[] {
+            "шт."});
+            this.unitComboBox.Location = new System.Drawing.Point(184, 189);
+            this.unitComboBox.Name = "unitComboBox";
+            this.unitComboBox.Size = new System.Drawing.Size(121, 21);
+            this.unitComboBox.TabIndex = 22;
+            // 
             // CreateUpdateProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,7 +448,6 @@ namespace shoes.AppForms
         private Shapkin_DemoShoesDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox productNameTextBox;
-        private System.Windows.Forms.TextBox unitTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.ComboBox supplyerIdComboBox;
         private System.Windows.Forms.ComboBox manufacturerIdComboBox;
@@ -454,5 +458,6 @@ namespace shoes.AppForms
         private System.Windows.Forms.TextBox photoTextBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button deleteProductButton;
+        private System.Windows.Forms.ComboBox unitComboBox;
     }
 }

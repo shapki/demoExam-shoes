@@ -84,7 +84,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Location = new System.Drawing.Point(94, 53);
             this.headerSubtitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -117,6 +117,7 @@ namespace shoes.AppForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(791, 519);
             this.Controls.Add(this.formSplitContainer);
             this.Font = new System.Drawing.Font("Times New Roman", 10F);

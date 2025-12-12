@@ -117,7 +117,7 @@ namespace shoes.AppForms
 
                 priceTextBox.Text = _product.Price.ToString();
                 stockTextBox.Text = _product.Stock.ToString();
-                unitTextBox.Text = _product.Unit;
+                unitComboBox.Text = _product.Unit;
                 discountTextBox.Text = _product.Discount.ToString();
                 photoTextBox.Text = _product.Photo;
             }
@@ -204,7 +204,7 @@ namespace shoes.AppForms
                 }
 
                 _product.Desk = deskTextBox.Text.Trim();
-                _product.Unit = unitTextBox.Text.Trim();
+                _product.Unit = unitComboBox.Text.Trim();
 
                 if (!string.IsNullOrEmpty(supplyerIdComboBox.Text))
                 {
