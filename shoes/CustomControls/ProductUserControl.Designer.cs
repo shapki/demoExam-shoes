@@ -39,6 +39,7 @@ namespace shoes.CustomControls
             this.unitLabel = new System.Windows.Forms.Label();
             this.discountLabel = new System.Windows.Forms.Label();
             this.newPriceLabel = new System.Windows.Forms.Label();
+            this.infoBackPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@ namespace shoes.CustomControls
             // 
             this.productNameLabel.AutoSize = true;
             this.productNameLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.productNameLabel.Location = new System.Drawing.Point(143, 11);
+            this.productNameLabel.Location = new System.Drawing.Point(144, 12);
             this.productNameLabel.Name = "productNameLabel";
             this.productNameLabel.Size = new System.Drawing.Size(273, 19);
             this.productNameLabel.TabIndex = 0;
@@ -54,10 +55,11 @@ namespace shoes.CustomControls
             // 
             // productPictureBox
             // 
+            this.productPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.productPictureBox.Image = global::shoes.Properties.Resources.picture;
-            this.productPictureBox.Location = new System.Drawing.Point(13, 14);
+            this.productPictureBox.Location = new System.Drawing.Point(13, 11);
             this.productPictureBox.Name = "productPictureBox";
-            this.productPictureBox.Size = new System.Drawing.Size(124, 112);
+            this.productPictureBox.Size = new System.Drawing.Size(124, 117);
             this.productPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.productPictureBox.TabIndex = 1;
             this.productPictureBox.TabStop = false;
@@ -66,9 +68,9 @@ namespace shoes.CustomControls
             // 
             this.deskLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.deskLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.deskLabel.Location = new System.Drawing.Point(143, 30);
+            this.deskLabel.Location = new System.Drawing.Point(144, 30);
             this.deskLabel.Name = "deskLabel";
-            this.deskLabel.Size = new System.Drawing.Size(393, 21);
+            this.deskLabel.Size = new System.Drawing.Size(388, 21);
             this.deskLabel.TabIndex = 2;
             this.deskLabel.Text = "Описание товара";
             // 
@@ -77,7 +79,7 @@ namespace shoes.CustomControls
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.priceLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.priceLabel.Location = new System.Drawing.Point(143, 78);
+            this.priceLabel.Location = new System.Drawing.Point(144, 78);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(43, 16);
             this.priceLabel.TabIndex = 3;
@@ -129,6 +131,7 @@ namespace shoes.CustomControls
             // 
             // discountLabel
             // 
+            this.discountLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.discountLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.discountLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.discountLabel.Location = new System.Drawing.Point(542, 11);
@@ -150,6 +153,14 @@ namespace shoes.CustomControls
             this.newPriceLabel.Text = "Цена: ";
             this.newPriceLabel.Visible = false;
             // 
+            // infoBackPanel
+            // 
+            this.infoBackPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.infoBackPanel.Location = new System.Drawing.Point(143, 11);
+            this.infoBackPanel.Name = "infoBackPanel";
+            this.infoBackPanel.Size = new System.Drawing.Size(393, 117);
+            this.infoBackPanel.TabIndex = 11;
+            // 
             // ProductUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -165,6 +176,7 @@ namespace shoes.CustomControls
             this.Controls.Add(this.deskLabel);
             this.Controls.Add(this.productPictureBox);
             this.Controls.Add(this.productNameLabel);
+            this.Controls.Add(this.infoBackPanel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.Name = "ProductUserControl";
@@ -190,5 +202,6 @@ namespace shoes.CustomControls
         private System.Windows.Forms.Label unitLabel;
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.Label newPriceLabel;
+        private System.Windows.Forms.Panel infoBackPanel;
     }
 }

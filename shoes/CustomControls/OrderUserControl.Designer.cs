@@ -40,16 +40,17 @@ namespace shoes.CustomControls
             // infoBackPanel
             // 
             this.infoBackPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.infoBackPanel.Location = new System.Drawing.Point(23, 23);
+            this.infoBackPanel.Location = new System.Drawing.Point(23, 20);
             this.infoBackPanel.Name = "infoBackPanel";
-            this.infoBackPanel.Size = new System.Drawing.Size(474, 62);
+            this.infoBackPanel.Size = new System.Drawing.Size(474, 71);
             this.infoBackPanel.TabIndex = 0;
             // 
             // scuLabel
             // 
             this.scuLabel.AutoSize = true;
+            this.scuLabel.BackColor = System.Drawing.Color.White;
             this.scuLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.scuLabel.Location = new System.Drawing.Point(23, 20);
+            this.scuLabel.Location = new System.Drawing.Point(25, 24);
             this.scuLabel.Name = "scuLabel";
             this.scuLabel.Size = new System.Drawing.Size(72, 17);
             this.scuLabel.TabIndex = 1;
@@ -58,8 +59,9 @@ namespace shoes.CustomControls
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
+            this.statusLabel.BackColor = System.Drawing.Color.White;
             this.statusLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.statusLabel.Location = new System.Drawing.Point(22, 37);
+            this.statusLabel.Location = new System.Drawing.Point(24, 41);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(54, 16);
             this.statusLabel.TabIndex = 2;
@@ -68,8 +70,9 @@ namespace shoes.CustomControls
             // officeLabel
             // 
             this.officeLabel.AutoSize = true;
+            this.officeLabel.BackColor = System.Drawing.Color.White;
             this.officeLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.officeLabel.Location = new System.Drawing.Point(23, 53);
+            this.officeLabel.Location = new System.Drawing.Point(25, 57);
             this.officeLabel.Name = "officeLabel";
             this.officeLabel.Size = new System.Drawing.Size(96, 16);
             this.officeLabel.TabIndex = 3;
@@ -78,8 +81,9 @@ namespace shoes.CustomControls
             // orderDateLabel
             // 
             this.orderDateLabel.AutoSize = true;
+            this.orderDateLabel.BackColor = System.Drawing.Color.White;
             this.orderDateLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.orderDateLabel.Location = new System.Drawing.Point(22, 69);
+            this.orderDateLabel.Location = new System.Drawing.Point(24, 73);
             this.orderDateLabel.Name = "orderDateLabel";
             this.orderDateLabel.Size = new System.Drawing.Size(87, 16);
             this.orderDateLabel.TabIndex = 4;
@@ -92,7 +96,7 @@ namespace shoes.CustomControls
             this.deliveryDateLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.deliveryDateLabel.Location = new System.Drawing.Point(518, 20);
             this.deliveryDateLabel.Name = "deliveryDateLabel";
-            this.deliveryDateLabel.Size = new System.Drawing.Size(111, 65);
+            this.deliveryDateLabel.Size = new System.Drawing.Size(111, 71);
             this.deliveryDateLabel.TabIndex = 5;
             this.deliveryDateLabel.Text = "Дата доставки:\r\n";
             this.deliveryDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,7 +115,7 @@ namespace shoes.CustomControls
             this.Controls.Add(this.infoBackPanel);
             this.Name = "OrderUserControl";
             this.Padding = new System.Windows.Forms.Padding(20);
-            this.Size = new System.Drawing.Size(652, 104);
+            this.Size = new System.Drawing.Size(652, 111);
             this.Load += new System.EventHandler(this.OrderUserControl_Load);
             this.Click += new System.EventHandler(this.OrderUserControl_Click);
             this.ResumeLayout(false);

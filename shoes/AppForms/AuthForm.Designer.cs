@@ -62,9 +62,9 @@ namespace shoes.AppForms
             | System.Windows.Forms.AnchorStyles.Left)));
             loginLabel.AutoSize = true;
             loginLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
-            loginLabel.Location = new System.Drawing.Point(3, 10);
+            loginLabel.Location = new System.Drawing.Point(3, 11);
             loginLabel.Name = "loginLabel";
-            loginLabel.Size = new System.Drawing.Size(47, 16);
+            loginLabel.Size = new System.Drawing.Size(48, 16);
             loginLabel.TabIndex = 0;
             loginLabel.Text = "Логин:";
             // 
@@ -74,9 +74,9 @@ namespace shoes.AppForms
             | System.Windows.Forms.AnchorStyles.Left)));
             passwordLabel.AutoSize = true;
             passwordLabel.Font = new System.Drawing.Font("Times New Roman", 10F);
-            passwordLabel.Location = new System.Drawing.Point(3, 36);
+            passwordLabel.Location = new System.Drawing.Point(3, 39);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(52, 16);
+            passwordLabel.Size = new System.Drawing.Size(53, 16);
             passwordLabel.TabIndex = 2;
             passwordLabel.Text = "Пароль:";
             // 
@@ -99,13 +99,14 @@ namespace shoes.AppForms
             // 
             // formSplitContainer.Panel2
             // 
+            this.formSplitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this.formSplitContainer.Panel2.Controls.Add(this.guestLogInButton);
             this.formSplitContainer.Panel2.Controls.Add(this.logInButton);
             this.formSplitContainer.Panel2.Controls.Add(loginLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.loginTextBox);
             this.formSplitContainer.Panel2.Controls.Add(passwordLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.passwordTextBox);
-            this.formSplitContainer.Size = new System.Drawing.Size(376, 150);
+            this.formSplitContainer.Size = new System.Drawing.Size(376, 162);
             this.formSplitContainer.SplitterDistance = 80;
             this.formSplitContainer.TabIndex = 3;
             // 
@@ -113,9 +114,9 @@ namespace shoes.AppForms
             // 
             this.headerSubtitleLabel.AutoSize = true;
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
+            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 50);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(81, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(82, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Авторизация";
             // 
@@ -123,7 +124,7 @@ namespace shoes.AppForms
             // 
             this.headerTitleLabel.AutoSize = true;
             this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(81, 23);
+            this.headerTitleLabel.Location = new System.Drawing.Point(81, 25);
             this.headerTitleLabel.Name = "headerTitleLabel";
             this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
             this.headerTitleLabel.TabIndex = 1;
@@ -142,9 +143,9 @@ namespace shoes.AppForms
             // 
             // guestLogInButton
             // 
-            this.guestLogInButton.Location = new System.Drawing.Point(272, 33);
+            this.guestLogInButton.Location = new System.Drawing.Point(272, 36);
             this.guestLogInButton.Name = "guestLogInButton";
-            this.guestLogInButton.Size = new System.Drawing.Size(92, 24);
+            this.guestLogInButton.Size = new System.Drawing.Size(92, 26);
             this.guestLogInButton.TabIndex = 5;
             this.guestLogInButton.Text = "Войти гостем";
             this.guestLogInButton.UseVisualStyleBackColor = true;
@@ -154,7 +155,7 @@ namespace shoes.AppForms
             // 
             this.logInButton.Location = new System.Drawing.Point(272, 5);
             this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(92, 24);
+            this.logInButton.Size = new System.Drawing.Size(92, 26);
             this.logInButton.TabIndex = 4;
             this.logInButton.Text = "Войти";
             this.logInButton.UseVisualStyleBackColor = true;
@@ -165,7 +166,7 @@ namespace shoes.AppForms
             this.loginTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.loginTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Login", true));
-            this.loginTextBox.Location = new System.Drawing.Point(66, 8);
+            this.loginTextBox.Location = new System.Drawing.Point(66, 9);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(100, 20);
             this.loginTextBox.TabIndex = 1;
@@ -185,7 +186,7 @@ namespace shoes.AppForms
             this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "Password", true));
-            this.passwordTextBox.Location = new System.Drawing.Point(66, 34);
+            this.passwordTextBox.Location = new System.Drawing.Point(66, 37);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordTextBox.TabIndex = 3;
@@ -208,15 +209,16 @@ namespace shoes.AppForms
             // 
             // AuthForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 150);
+            this.ClientSize = new System.Drawing.Size(376, 162);
             this.Controls.Add(this.formSplitContainer);
+            this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(392, 189);
-            this.MinimumSize = new System.Drawing.Size(392, 189);
+            this.MaximumSize = new System.Drawing.Size(392, 201);
+            this.MinimumSize = new System.Drawing.Size(392, 201);
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | Авторизация";

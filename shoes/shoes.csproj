@@ -122,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\UserRole.cs" />
@@ -160,6 +161,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Docs\alg_razr_pr_auth.pdf" />
+    <None Include="Docs\alg_razr_pr_auth.vsd" />
+    <None Include="Docs\alg_razr_pr_order.pdf" />
+    <None Include="Docs\alg_razr_pr_order.vsd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -187,10 +192,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Docs\###Надо.txt" />
+    <Content Include="Docs\db_schema.png" />
     <Content Include="Docs\script.sql" />
-    <Content Include="Resources\###Надо.txt" />
-    <Content Include="Resources\db_schema.png" />
-    <Content Include="Resources\script.sql" />
     <None Include="Resources\Icon.ico" />
     <None Include="Resources\Icon.png" />
     <None Include="Resources\Icon.JPG" />

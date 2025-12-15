@@ -1,5 +1,6 @@
 ﻿using shoes.Models;
 using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -111,6 +112,23 @@ namespace shoes.Services
                 var product = _context.Product.Find(productId);
                 if (product != null)
                 {
+                    if (!string.IsNullOrEmpty(product.Photo))
+                    {
+                        try
+                        {
+                            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                "Resources", product.Photo);
+                            if (File.Exists(imagePath))
+                            {
+                                File.Delete(imagePath);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Не удалось удалить изображение товара: {ex.Message}");
+                        }
+                    }
+
                     _context.Product.Remove(product);
                     _context.SaveChanges();
                     return true;

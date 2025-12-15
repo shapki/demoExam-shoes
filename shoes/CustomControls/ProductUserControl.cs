@@ -23,13 +23,40 @@ namespace shoes.CustomControls
             _product = product;
             _role = role;
             SetLabelTextValues();
-            SetProductPhoto();
             SetColorByValues();
             SetDiscount();
+            LoadProductImage();
 
             foreach (Control control in this.Controls)
             {
                 control.Click += ProductUserControl_Click;
+            }
+        }
+
+        private void LoadProductImage()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(_product.Photo))
+                {
+                    string imagePath = Path.Combine(Application.StartupPath, "Resources", _product.Photo);
+                    if (File.Exists(imagePath))
+                    {
+                        productPictureBox.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        productPictureBox.Image = Properties.Resources.picture;
+                    }
+                }
+                else
+                {
+                    productPictureBox.Image = Properties.Resources.picture;
+                }
+            }
+            catch
+            {
+                productPictureBox.Image = Properties.Resources.picture;
             }
         }
 
@@ -63,22 +90,8 @@ namespace shoes.CustomControls
 
             priceLabel.Text = "Цена: " + _product.Price;
             stockLabel.Text = "На складе: " + _product.Stock;
-            unitLabel.Text = "Ед. изм: " + _product.Unit;
+            unitLabel.Text = "Единица измерения: " + _product.Unit;
             deskLabel.Text = _product.Desk;
-        }
-
-        private void SetProductPhoto()
-        {
-            string fileName = _product.Photo;
-            string baseDirectory = @"X:\Инструментальные средства разработки программного обеспечения (МДК.02.02)\demoExam\shoes\shoes\Resources";
-            if (!string.IsNullOrEmpty(fileName))
-            {
-                string fullPath = Path.Combine(baseDirectory, fileName);
-                if (File.Exists(fullPath))
-                {
-                    productPictureBox.ImageLocation = fullPath;
-                }
-            }
         }
 
         private void SetColorByValues()

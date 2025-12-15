@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using shoes.Models;
@@ -12,6 +14,7 @@ namespace shoes.AppForms
         private Product _product;
         private bool _isEditMode;
         private ProductService _productService;
+        private string _tempImagePath;
 
         public event EventHandler<Product> ProductSaved;
 
@@ -35,7 +38,7 @@ namespace shoes.AppForms
         private void InitializeForm()
         {
             saveButton.Visible = true;
-
+            loadImageButton.Visible = true;
             if (_isEditMode)
             {
                 this.Text += "Редактирование товара";
@@ -43,6 +46,7 @@ namespace shoes.AppForms
                 deleteProductButton.Visible = true;
                 LoadComboBoxData();
                 BindProductToControls();
+                LoadProductImage();
             }
             else
             {
@@ -50,9 +54,118 @@ namespace shoes.AppForms
                 headerSubtitleLabel.Text = "Создание товара";
                 deleteProductButton.Visible = false;
                 saveButton.Text = "Добавить товар";
-                saveButton.Size = new System.Drawing.Size(221, 22);
+                saveButton.Size = new System.Drawing.Size(225, 24);
                 _product = new Product();
                 LoadComboBoxData();
+            }
+        }
+
+        private void LoadProductImage()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(_product.Photo))
+                {
+                    string imagePath = Path.Combine(Application.StartupPath, "Resources", _product.Photo);
+                    if (File.Exists(imagePath))
+                    {
+                        productPictureBox.Image = Image.FromFile(imagePath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void loadImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
+                openFileDialog.Title = "Выберите изображение товара";
+                openFileDialog.Multiselect = false;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        productPictureBox.Image = Image.FromFile(openFileDialog.FileName);
+
+                        _tempImagePath = openFileDialog.FileName;
+                        MessageBox.Show("Изображение загружено. Сохраните товар для применения изменений.",
+                            "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void clearImageButton_Click(object sender, EventArgs e)
+        {
+            productPictureBox.Image = null;
+            _tempImagePath = null;
+        }
+
+        private bool SaveProductImage()
+        {
+            try
+            {
+                string imagesFolder = Path.Combine(Application.StartupPath, "Resources");
+                if (!Directory.Exists(imagesFolder))
+                {
+                    Directory.CreateDirectory(imagesFolder);
+                }
+
+                if (!string.IsNullOrEmpty(_product.Photo))
+                {
+                    string oldImagePath = Path.Combine(imagesFolder, _product.Photo);
+                    if (File.Exists(oldImagePath))
+                    {
+                        try
+                        {
+                            File.Delete(oldImagePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Не удалось удалить старое изображение: {ex.Message}");
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(_tempImagePath) && File.Exists(_tempImagePath))
+                {
+                    string extension = Path.GetExtension(_tempImagePath);
+                    string newFileName = $"{Guid.NewGuid()}{extension}";
+                    string newImagePath = Path.Combine(imagesFolder, newFileName);
+
+                    File.Copy(_tempImagePath, newImagePath, true);
+
+                    _product.Photo = newFileName;
+
+                    _tempImagePath = null;
+
+                    return true;
+                }
+                else if (productPictureBox.Image == null)
+                {
+                    _product.Photo = null;
+                    return true;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении изображения: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -119,7 +232,6 @@ namespace shoes.AppForms
                 stockTextBox.Text = _product.Stock.ToString();
                 unitComboBox.Text = _product.Unit;
                 discountTextBox.Text = _product.Discount.ToString();
-                photoTextBox.Text = _product.Photo;
             }
         }
 
@@ -189,6 +301,11 @@ namespace shoes.AppForms
                 if (!_isEditMode)
                 {
                     _product.Scu = GenerateNewScu();
+                }
+
+                if (!SaveProductImage())
+                {
+                    return false;
                 }
 
                 _product.ProductName = productNameTextBox.Text.Trim();
@@ -276,7 +393,7 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                if (double.TryParse(priceTextBox.Text, out double price) && price >= 0)
+                if (double.TryParse(priceTextBox.Text, out double price) && price > 0)
                 {
                     _product.Price = price;
                 }
@@ -307,7 +424,17 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                _product.Photo = string.IsNullOrEmpty(photoTextBox.Text) ? null : photoTextBox.Text.Trim();
+                if (!string.IsNullOrEmpty(_tempImagePath))
+                {
+                    string oldImageFileName = _isEditMode ? _product.Photo : null;
+                    _product.Photo = ImageService.SaveProductImage(_tempImagePath, oldImageFileName);
+                    _tempImagePath = null;
+                }
+                else if (productPictureBox.Image == null && _isEditMode)
+                {
+                    ImageService.DeleteProductImage(_product.Photo);
+                    _product.Photo = null;
+                }
 
                 return true;
             }

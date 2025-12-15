@@ -69,67 +69,67 @@ namespace shoes.AppForms
             // 
             // orderDateLabel
             // 
-            orderDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            orderDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             orderDateLabel.AutoSize = true;
-            orderDateLabel.Location = new System.Drawing.Point(66, 89);
+            orderDateLabel.Location = new System.Drawing.Point(66, 96);
             orderDateLabel.Name = "orderDateLabel";
-            orderDateLabel.Size = new System.Drawing.Size(75, 13);
+            orderDateLabel.Size = new System.Drawing.Size(64, 14);
             orderDateLabel.TabIndex = 10;
             orderDateLabel.Text = "Дата заказа:";
             // 
             // deliveryDateLabel
             // 
-            deliveryDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            deliveryDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             deliveryDateLabel.AutoSize = true;
-            deliveryDateLabel.Location = new System.Drawing.Point(66, 115);
+            deliveryDateLabel.Location = new System.Drawing.Point(66, 124);
             deliveryDateLabel.Name = "deliveryDateLabel";
-            deliveryDateLabel.Size = new System.Drawing.Size(86, 13);
+            deliveryDateLabel.Size = new System.Drawing.Size(78, 14);
             deliveryDateLabel.TabIndex = 12;
             deliveryDateLabel.Text = "Дата доставки:";
             // 
             // officeIdLabel
             // 
-            officeIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            officeIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             officeIdLabel.AutoSize = true;
-            officeIdLabel.Location = new System.Drawing.Point(66, 61);
+            officeIdLabel.Location = new System.Drawing.Point(66, 66);
             officeIdLabel.Name = "officeIdLabel";
-            officeIdLabel.Size = new System.Drawing.Size(80, 13);
+            officeIdLabel.Size = new System.Drawing.Size(77, 14);
             officeIdLabel.TabIndex = 14;
             officeIdLabel.Text = "Пункт выдачи:";
             // 
             // codeLabel
             // 
-            codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            codeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             codeLabel.AutoSize = true;
-            codeLabel.Location = new System.Drawing.Point(66, 8);
+            codeLabel.Location = new System.Drawing.Point(66, 9);
             codeLabel.Name = "codeLabel";
-            codeLabel.Size = new System.Drawing.Size(51, 13);
+            codeLabel.Size = new System.Drawing.Size(51, 14);
             codeLabel.TabIndex = 16;
             codeLabel.Text = "Артикул:";
             // 
             // statusLabel
             // 
-            statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             statusLabel.AutoSize = true;
-            statusLabel.Location = new System.Drawing.Point(66, 34);
+            statusLabel.Location = new System.Drawing.Point(66, 37);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new System.Drawing.Size(44, 13);
+            statusLabel.Size = new System.Drawing.Size(43, 14);
             statusLabel.TabIndex = 18;
             statusLabel.Text = "Статус:";
             // 
             // userIdLabel
             // 
-            userIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            userIdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             userIdLabel.AutoSize = true;
-            userIdLabel.Location = new System.Drawing.Point(66, 138);
+            userIdLabel.Location = new System.Drawing.Point(66, 149);
             userIdLabel.Name = "userIdLabel";
-            userIdLabel.Size = new System.Drawing.Size(83, 13);
+            userIdLabel.Size = new System.Drawing.Size(74, 14);
             userIdLabel.TabIndex = 25;
             userIdLabel.Text = "Пользователь:";
             // 
@@ -153,6 +153,7 @@ namespace shoes.AppForms
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.AutoScroll = true;
+            this.formSplitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this.formSplitContainer.Panel2.Controls.Add(this.deleteOrderButton);
             this.formSplitContainer.Panel2.Controls.Add(userIdLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.userIdComboBox);
@@ -167,7 +168,7 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel2.Controls.Add(statusLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.statusComboBox);
             this.formSplitContainer.Panel2.Controls.Add(this.saveButton);
-            this.formSplitContainer.Size = new System.Drawing.Size(395, 281);
+            this.formSplitContainer.Size = new System.Drawing.Size(395, 303);
             this.formSplitContainer.SplitterDistance = 80;
             this.formSplitContainer.TabIndex = 5;
             // 
@@ -175,7 +176,7 @@ namespace shoes.AppForms
             // 
             this.headerSubtitleLabel.AutoSize = true;
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 46);
+            this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 50);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
             this.headerSubtitleLabel.Size = new System.Drawing.Size(142, 16);
             this.headerSubtitleLabel.TabIndex = 2;
@@ -185,7 +186,7 @@ namespace shoes.AppForms
             // 
             this.headerTitleLabel.AutoSize = true;
             this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(81, 23);
+            this.headerTitleLabel.Location = new System.Drawing.Point(81, 25);
             this.headerTitleLabel.Name = "headerTitleLabel";
             this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
             this.headerTitleLabel.TabIndex = 1;
@@ -209,9 +210,9 @@ namespace shoes.AppForms
             this.deleteOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteOrderButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.deleteOrderButton.ForeColor = System.Drawing.Color.White;
-            this.deleteOrderButton.Location = new System.Drawing.Point(216, 162);
+            this.deleteOrderButton.Location = new System.Drawing.Point(216, 174);
             this.deleteOrderButton.Name = "deleteOrderButton";
-            this.deleteOrderButton.Size = new System.Drawing.Size(105, 22);
+            this.deleteOrderButton.Size = new System.Drawing.Size(105, 24);
             this.deleteOrderButton.TabIndex = 27;
             this.deleteOrderButton.Text = "Удалить заказ";
             this.deleteOrderButton.UseVisualStyleBackColor = false;
@@ -220,14 +221,14 @@ namespace shoes.AppForms
             // 
             // userIdComboBox
             // 
-            this.userIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.userIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "UserId", true));
             this.userIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.userIdComboBox.FormattingEnabled = true;
-            this.userIdComboBox.Location = new System.Drawing.Point(158, 135);
+            this.userIdComboBox.Location = new System.Drawing.Point(158, 145);
             this.userIdComboBox.Name = "userIdComboBox";
-            this.userIdComboBox.Size = new System.Drawing.Size(163, 21);
+            this.userIdComboBox.Size = new System.Drawing.Size(163, 22);
             this.userIdComboBox.TabIndex = 26;
             // 
             // orderBindingSource
@@ -242,39 +243,39 @@ namespace shoes.AppForms
             // 
             // orderDateDateTimePicker
             // 
-            this.orderDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.orderDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.orderDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "OrderDate", true));
-            this.orderDateDateTimePicker.Location = new System.Drawing.Point(158, 83);
+            this.orderDateDateTimePicker.Location = new System.Drawing.Point(158, 89);
             this.orderDateDateTimePicker.Name = "orderDateDateTimePicker";
             this.orderDateDateTimePicker.Size = new System.Drawing.Size(163, 20);
             this.orderDateDateTimePicker.TabIndex = 11;
             // 
             // deliveryDateDateTimePicker
             // 
-            this.deliveryDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.deliveryDateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deliveryDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderBindingSource, "UserId", true));
-            this.deliveryDateDateTimePicker.Location = new System.Drawing.Point(158, 109);
+            this.deliveryDateDateTimePicker.Location = new System.Drawing.Point(158, 117);
             this.deliveryDateDateTimePicker.Name = "deliveryDateDateTimePicker";
             this.deliveryDateDateTimePicker.Size = new System.Drawing.Size(163, 20);
             this.deliveryDateDateTimePicker.TabIndex = 13;
             // 
             // officeIdComboBox
             // 
-            this.officeIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.officeIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.officeIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "OfficeId", true));
             this.officeIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.officeIdComboBox.FormattingEnabled = true;
-            this.officeIdComboBox.Location = new System.Drawing.Point(158, 56);
+            this.officeIdComboBox.Location = new System.Drawing.Point(158, 60);
             this.officeIdComboBox.Name = "officeIdComboBox";
-            this.officeIdComboBox.Size = new System.Drawing.Size(163, 21);
+            this.officeIdComboBox.Size = new System.Drawing.Size(163, 22);
             this.officeIdComboBox.TabIndex = 15;
             // 
             // codeTextBox
             // 
-            this.codeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.codeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Code", true));
             this.codeTextBox.Location = new System.Drawing.Point(158, 3);
@@ -284,26 +285,26 @@ namespace shoes.AppForms
             // 
             // statusComboBox
             // 
-            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.statusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderBindingSource, "Status", true));
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(158, 29);
+            this.statusComboBox.Location = new System.Drawing.Point(158, 31);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(163, 21);
+            this.statusComboBox.Size = new System.Drawing.Size(163, 22);
             this.statusComboBox.TabIndex = 19;
             // 
             // saveButton
             // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.BackColor = System.Drawing.Color.LightGray;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.saveButton.Location = new System.Drawing.Point(69, 162);
+            this.saveButton.Location = new System.Drawing.Point(69, 174);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(141, 22);
+            this.saveButton.Size = new System.Drawing.Size(141, 24);
             this.saveButton.TabIndex = 10;
             this.saveButton.Text = "Сохранить изм.";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -327,12 +328,13 @@ namespace shoes.AppForms
             // 
             // CreateUpdateOrderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 281);
+            this.ClientSize = new System.Drawing.Size(395, 303);
             this.Controls.Add(this.formSplitContainer);
+            this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MinimumSize = new System.Drawing.Size(392, 320);
+            this.MinimumSize = new System.Drawing.Size(392, 342);
             this.Name = "CreateUpdateOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | ";

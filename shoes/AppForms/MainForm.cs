@@ -4,6 +4,7 @@ using shoes.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -33,6 +34,24 @@ namespace shoes.AppForms
             LoadFilterComboBox();
             ShowProductsFilteredAndSorted();
             CheckUserRole();
+            InitializeImagesFolder();
+        }
+
+        private void InitializeImagesFolder()
+        {
+            try
+            {
+                string imagesFolder = Path.Combine(Application.StartupPath, "Resources");
+                if (!Directory.Exists(imagesFolder))
+                {
+                    Directory.CreateDirectory(imagesFolder);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось создать папку для изображений: {ex.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void CheckUserRole()

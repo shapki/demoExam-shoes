@@ -79,7 +79,7 @@ namespace shoes.AppForms
             // formSplitContainer.Panel2
             // 
             this.formSplitContainer.Panel2.Controls.Add(this.contentFlowLayoutPanel);
-            this.formSplitContainer.Size = new System.Drawing.Size(678, 450);
+            this.formSplitContainer.Size = new System.Drawing.Size(678, 485);
             this.formSplitContainer.SplitterDistance = 96;
             this.formSplitContainer.TabIndex = 2;
             // 
@@ -91,7 +91,7 @@ namespace shoes.AppForms
             this.ordersButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.ordersButton.Location = new System.Drawing.Point(209, 72);
             this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(60, 22);
+            this.ordersButton.Size = new System.Drawing.Size(60, 24);
             this.ordersButton.TabIndex = 10;
             this.ordersButton.Text = "Заказы";
             this.ordersButton.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@ namespace shoes.AppForms
             this.addProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.addProductButton.Location = new System.Drawing.Point(122, 72);
             this.addProductButton.Name = "addProductButton";
-            this.addProductButton.Size = new System.Drawing.Size(81, 22);
+            this.addProductButton.Size = new System.Drawing.Size(81, 24);
             this.addProductButton.TabIndex = 9;
             this.addProductButton.Text = "Доб. товар";
             this.addProductButton.UseVisualStyleBackColor = false;
@@ -136,7 +136,7 @@ namespace shoes.AppForms
             this.sortButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.sortButton.Location = new System.Drawing.Point(395, 72);
             this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(171, 22);
+            this.sortButton.Size = new System.Drawing.Size(171, 24);
             this.sortButton.TabIndex = 7;
             this.sortButton.Text = "Сортировка по кол-ву ■";
             this.sortButton.UseVisualStyleBackColor = false;
@@ -148,7 +148,7 @@ namespace shoes.AppForms
             this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.searchTextBox.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.searchTextBox.Location = new System.Drawing.Point(572, 71);
+            this.searchTextBox.Location = new System.Drawing.Point(572, 72);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 23);
             this.searchTextBox.TabIndex = 6;
@@ -166,14 +166,14 @@ namespace shoes.AppForms
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(678, 70);
+            this.headerPanel.Size = new System.Drawing.Size(678, 75);
             this.headerPanel.TabIndex = 1;
             // 
             // headerTitleLabel
             // 
             this.headerTitleLabel.AutoSize = true;
             this.headerTitleLabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerTitleLabel.Location = new System.Drawing.Point(77, 17);
+            this.headerTitleLabel.Location = new System.Drawing.Point(77, 18);
             this.headerTitleLabel.Name = "headerTitleLabel";
             this.headerTitleLabel.Size = new System.Drawing.Size(141, 23);
             this.headerTitleLabel.TabIndex = 1;
@@ -187,7 +187,7 @@ namespace shoes.AppForms
             this.logOutButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.logOutButton.Location = new System.Drawing.Point(623, 3);
             this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(49, 23);
+            this.logOutButton.Size = new System.Drawing.Size(49, 25);
             this.logOutButton.TabIndex = 4;
             this.logOutButton.Text = "Выйти";
             this.logOutButton.UseVisualStyleBackColor = false;
@@ -198,7 +198,7 @@ namespace shoes.AppForms
             this.headerLogoPictureBox.Image = global::shoes.Properties.Resources.Icon2;
             this.headerLogoPictureBox.Location = new System.Drawing.Point(1, -1);
             this.headerLogoPictureBox.Name = "headerLogoPictureBox";
-            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 70);
+            this.headerLogoPictureBox.Size = new System.Drawing.Size(70, 75);
             this.headerLogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.headerLogoPictureBox.TabIndex = 0;
             this.headerLogoPictureBox.TabStop = false;
@@ -209,7 +209,7 @@ namespace shoes.AppForms
             this.userFullNameLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userFullNameLabel.Location = new System.Drawing.Point(476, 3);
             this.userFullNameLabel.Name = "userFullNameLabel";
-            this.userFullNameLabel.Size = new System.Drawing.Size(141, 23);
+            this.userFullNameLabel.Size = new System.Drawing.Size(141, 25);
             this.userFullNameLabel.TabIndex = 3;
             this.userFullNameLabel.Text = "ФИО";
             this.userFullNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -218,9 +218,9 @@ namespace shoes.AppForms
             // 
             this.headerSubtitleLabel.AutoSize = true;
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 40);
+            this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 43);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -232,7 +232,7 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.contentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.contentFlowLayoutPanel.Name = "contentFlowLayoutPanel";
-            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 350);
+            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 385);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
             // shapkin_DemoShoesDataSet
@@ -251,13 +251,14 @@ namespace shoes.AppForms
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(678, 450);
+            this.ClientSize = new System.Drawing.Size(678, 485);
             this.Controls.Add(this.formSplitContainer);
+            this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(694, 489);
+            this.MinimumSize = new System.Drawing.Size(694, 524);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Обувь\" | Товары";
