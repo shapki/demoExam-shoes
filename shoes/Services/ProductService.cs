@@ -1,5 +1,6 @@
 ﻿using shoes.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -86,10 +87,38 @@ namespace shoes.Services
                 var existingProduct = _context.Product.Find(product.IdProduct);
                 if (existingProduct != null)
                 {
-                    _context.Entry(existingProduct).CurrentValues.SetValues(product);
+                    existingProduct.ProductName = product.ProductName;
+                    existingProduct.ProductCat = product.ProductCat;
+                    existingProduct.Desk = product.Desk;
+                    existingProduct.Unit = product.Unit;
+                    existingProduct.Price = product.Price;
+                    existingProduct.SupplyerId = product.SupplyerId;
+                    existingProduct.ManufacturerId = product.ManufacturerId;
+                    existingProduct.Discount = product.Discount;
+                    existingProduct.Stock = product.Stock;
+
+                    if (product.Photo != existingProduct.Photo)
+                    {
+                        existingProduct.Photo = product.Photo;
+                    }
+
                     _context.SaveChanges();
                     return true;
                 }
+                return false;
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                var errorMessages = new List<string>();
+                foreach (var validationResult in ex.EntityValidationErrors)
+                {
+                    foreach (var error in validationResult.ValidationErrors)
+                    {
+                        errorMessages.Add($"{error.PropertyName}: {error.ErrorMessage}");
+                    }
+                }
+                MessageBox.Show($"Ошибки валидации:\n{string.Join("\n", errorMessages)}",
+                    "Ошибка сохранения", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception ex)
@@ -114,25 +143,19 @@ namespace shoes.Services
                 {
                     if (!string.IsNullOrEmpty(product.Photo))
                     {
-                        try
-                        {
-                            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                "Resources", product.Photo);
-                            if (File.Exists(imagePath))
-                            {
-                                File.Delete(imagePath);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Не удалось удалить изображение товара: {ex.Message}");
-                        }
+                        ImageService.DeleteProductImage(product.Photo);
                     }
 
                     _context.Product.Remove(product);
                     _context.SaveChanges();
+
+                    MessageBox.Show("Товар успешно удален", "Успех",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
                 }
+
+                MessageBox.Show("Товар не найден", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception ex)

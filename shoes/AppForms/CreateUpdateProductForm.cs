@@ -60,16 +60,76 @@ namespace shoes.AppForms
             }
         }
 
+        private void loadImageButton_Click(object sender, EventArgs e)
+        {
+            string selectedImagePath = ImageService.OpenImageDialog();
+
+            if (!string.IsNullOrEmpty(selectedImagePath))
+            {
+                try
+                {
+                    if (!ImageService.IsValidImageFormat(selectedImagePath))
+                    {
+                        MessageBox.Show("Выберите файл в формате JPG, PNG, GIF или BMP",
+                            "Недопустимый формат", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    FileInfo fileInfo = new FileInfo(selectedImagePath);
+                    if (fileInfo.Length > 5 * 1024 * 1024)
+                    {
+                        MessageBox.Show("Размер файла не должен превышать 5 МБ",
+                            "Слишком большой файл", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    using (var tempImage = Image.FromFile(selectedImagePath))
+                    {
+                        productPictureBox.Image = new Bitmap(tempImage);
+                    }
+
+                    _tempImagePath = selectedImagePath;
+
+                    MessageBox.Show("Изображение загружено. Сохраните товар для применения изменений.",
+                        "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (OutOfMemoryException)
+                {
+                    MessageBox.Show("Невозможно загрузить изображение. Возможно, файл поврежден или имеет недопустимый формат.",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}",
+                        "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void clearImageButton_Click(object sender, EventArgs e)
+        {
+            if (productPictureBox.Image != null)
+            {
+                productPictureBox.Image.Dispose();
+                productPictureBox.Image = null;
+            }
+            _tempImagePath = null;
+        }
+
         private void LoadProductImage()
         {
             try
             {
                 if (!string.IsNullOrEmpty(_product.Photo))
                 {
-                    string imagePath = Path.Combine(Application.StartupPath, "Resources", _product.Photo);
-                    if (File.Exists(imagePath))
+                    Image loadedImage = ImageService.LoadProductImage(_product.Photo);
+                    if (loadedImage != null)
                     {
-                        productPictureBox.Image = Image.FromFile(imagePath);
+                        if (productPictureBox.Image != null)
+                        {
+                            productPictureBox.Image.Dispose();
+                        }
+                        productPictureBox.Image = loadedImage;
                     }
                 }
             }
@@ -80,90 +140,33 @@ namespace shoes.AppForms
             }
         }
 
-        private void loadImageButton_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp";
-                openFileDialog.Title = "Выберите изображение товара";
-                openFileDialog.Multiselect = false;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        productPictureBox.Image = Image.FromFile(openFileDialog.FileName);
-
-                        _tempImagePath = openFileDialog.FileName;
-                        MessageBox.Show("Изображение загружено. Сохраните товар для применения изменений.",
-                            "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
-        private void clearImageButton_Click(object sender, EventArgs e)
-        {
-            productPictureBox.Image = null;
-            _tempImagePath = null;
-        }
-
         private bool SaveProductImage()
         {
             try
             {
-                string imagesFolder = Path.Combine(Application.StartupPath, "Resources");
-                if (!Directory.Exists(imagesFolder))
+                if (!string.IsNullOrEmpty(_tempImagePath))
                 {
-                    Directory.CreateDirectory(imagesFolder);
-                }
+                    string oldImageFileName = _isEditMode ? _product.Photo : null;
 
-                if (!string.IsNullOrEmpty(_product.Photo))
-                {
-                    string oldImagePath = Path.Combine(imagesFolder, _product.Photo);
-                    if (File.Exists(oldImagePath))
+                    try
                     {
-                        try
-                        {
-                            File.Delete(oldImagePath);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Не удалось удалить старое изображение: {ex.Message}");
-                        }
+                        _product.Photo = ImageService.SaveProductImage(_tempImagePath, oldImageFileName);
+                        _tempImagePath = null;
+                        return true;
                     }
-                }
-
-                if (!string.IsNullOrEmpty(_tempImagePath) && File.Exists(_tempImagePath))
-                {
-                    string extension = Path.GetExtension(_tempImagePath);
-                    string newFileName = $"{Guid.NewGuid()}{extension}";
-                    string newImagePath = Path.Combine(imagesFolder, newFileName);
-
-                    File.Copy(_tempImagePath, newImagePath, true);
-
-                    _product.Photo = newFileName;
-
-                    _tempImagePath = null;
-
-                    return true;
-                }
-                else if (productPictureBox.Image == null)
-                {
-                    _product.Photo = null;
-                    return true;
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при сохранении изображения: {ex.Message}",
+                            "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                 }
 
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при сохранении изображения: {ex.Message}", "Ошибка",
+                MessageBox.Show($"Ошибка при работе с изображением: {ex.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -195,6 +198,20 @@ namespace shoes.AppForms
                 .ToList();
 
             productCatComboBox.DataSource = categories;
+
+            var units = Program.context.Product
+                .Where(p => !string.IsNullOrEmpty(p.Unit))
+                .Select(p => p.Unit)
+                .Distinct()
+                .OrderBy(u => u)
+                .ToList();
+
+            if (!units.Any())
+            {
+                units = new List<string> { "шт.", "пара", "комплект", "упаковка" };
+            }
+
+            unitComboBox.DataSource = units;
         }
 
         private void BindProductToControls()
@@ -230,7 +247,16 @@ namespace shoes.AppForms
 
                 priceTextBox.Text = _product.Price.ToString();
                 stockTextBox.Text = _product.Stock.ToString();
-                unitComboBox.Text = _product.Unit;
+
+                if (!string.IsNullOrEmpty(_product.Unit))
+                {
+                    unitComboBox.SelectedItem = _product.Unit;
+                }
+                else if (unitComboBox.Items.Count > 0)
+                {
+                    unitComboBox.SelectedIndex = 0;
+                }
+
                 discountTextBox.Text = _product.Discount.ToString();
             }
         }
@@ -301,11 +327,6 @@ namespace shoes.AppForms
                 if (!_isEditMode)
                 {
                     _product.Scu = GenerateNewScu();
-                }
-
-                if (!SaveProductImage())
-                {
-                    return false;
                 }
 
                 _product.ProductName = productNameTextBox.Text.Trim();
@@ -403,7 +424,6 @@ namespace shoes.AppForms
                     return false;
                 }
 
-                // Валидация количества на складе
                 if (int.TryParse(stockTextBox.Text, out int stock) && stock >= 0)
                 {
                     _product.Stock = stock;
@@ -430,10 +450,20 @@ namespace shoes.AppForms
                     _product.Photo = ImageService.SaveProductImage(_tempImagePath, oldImageFileName);
                     _tempImagePath = null;
                 }
-                else if (productPictureBox.Image == null && _isEditMode)
+                else if (productPictureBox.Image == null && _isEditMode && !string.IsNullOrEmpty(_product.Photo))
                 {
                     ImageService.DeleteProductImage(_product.Photo);
                     _product.Photo = null;
+                }
+
+                if (!string.IsNullOrEmpty(unitComboBox.Text))
+                {
+                    _product.Unit = unitComboBox.Text.Trim();
+                }
+                else
+                {
+                    MessageBox.Show("Введите единицу измерения", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
                 }
 
                 return true;

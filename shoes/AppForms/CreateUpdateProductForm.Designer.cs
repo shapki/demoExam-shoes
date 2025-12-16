@@ -59,10 +59,10 @@ namespace shoes.AppForms
             this.discountTextBox = new System.Windows.Forms.TextBox();
             this.stockTextBox = new System.Windows.Forms.TextBox();
             this.deskTextBox = new System.Windows.Forms.TextBox();
+            this.imageGroupBox = new System.Windows.Forms.GroupBox();
+            this.productPictureBox = new System.Windows.Forms.PictureBox();
             this.loadImageButton = new System.Windows.Forms.Button();
             this.clearImageButton = new System.Windows.Forms.Button();
-            this.productPictureBox = new System.Windows.Forms.PictureBox();
-            this.imageGroupBox = new System.Windows.Forms.GroupBox();
             this.productTableAdapter = new shoes.Shapkin_DemoShoesDataSetTableAdapters.ProductTableAdapter();
             this.tableAdapterManager = new shoes.Shapkin_DemoShoesDataSetTableAdapters.TableAdapterManager();
             productNameLabel = new System.Windows.Forms.Label();
@@ -81,8 +81,8 @@ namespace shoes.AppForms
             ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
             this.imageGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // productNameLabel
@@ -217,7 +217,7 @@ namespace shoes.AppForms
             this.formSplitContainer.Panel2.Controls.Add(deskLabel);
             this.formSplitContainer.Panel2.Controls.Add(this.deskTextBox);
             this.formSplitContainer.Panel2.Controls.Add(this.imageGroupBox);
-            this.formSplitContainer.Size = new System.Drawing.Size(376, 430);
+            this.formSplitContainer.Size = new System.Drawing.Size(376, 562);
             this.formSplitContainer.SplitterDistance = 80;
             this.formSplitContainer.TabIndex = 4;
             // 
@@ -227,7 +227,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(81, 50);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(143, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(142, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Редактирование товара";
             // 
@@ -254,6 +254,8 @@ namespace shoes.AppForms
             // 
             // unitComboBox
             // 
+            this.unitComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.unitComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Unit", true));
             this.unitComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unitComboBox.FormattingEnabled = true;
@@ -281,7 +283,7 @@ namespace shoes.AppForms
             this.deleteProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.deleteProductButton.ForeColor = System.Drawing.Color.White;
-            this.deleteProductButton.Location = new System.Drawing.Point(179, 447);
+            this.deleteProductButton.Location = new System.Drawing.Point(195, 447);
             this.deleteProductButton.Name = "deleteProductButton";
             this.deleteProductButton.Size = new System.Drawing.Size(109, 24);
             this.deleteProductButton.TabIndex = 20;
@@ -305,6 +307,8 @@ namespace shoes.AppForms
             // 
             // productNameTextBox
             // 
+            this.productNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.productNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductName", true));
             this.productNameTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.productNameTextBox.Location = new System.Drawing.Point(184, 9);
@@ -314,6 +318,8 @@ namespace shoes.AppForms
             // 
             // priceTextBox
             // 
+            this.priceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.priceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Price", true));
             this.priceTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.priceTextBox.Location = new System.Drawing.Point(184, 152);
@@ -323,6 +329,8 @@ namespace shoes.AppForms
             // 
             // supplyerIdComboBox
             // 
+            this.supplyerIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.supplyerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "SupplyerId", true));
             this.supplyerIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.supplyerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
@@ -334,6 +342,8 @@ namespace shoes.AppForms
             // 
             // manufacturerIdComboBox
             // 
+            this.manufacturerIdComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.manufacturerIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productBindingSource, "ManufacturerId", true));
             this.manufacturerIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.manufacturerIdComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
@@ -345,6 +355,8 @@ namespace shoes.AppForms
             // 
             // productCatComboBox
             // 
+            this.productCatComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.productCatComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductCat", true));
             this.productCatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productCatComboBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
@@ -356,6 +368,8 @@ namespace shoes.AppForms
             // 
             // discountTextBox
             // 
+            this.discountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.discountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Discount", true));
             this.discountTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.discountTextBox.Location = new System.Drawing.Point(184, 236);
@@ -365,6 +379,8 @@ namespace shoes.AppForms
             // 
             // stockTextBox
             // 
+            this.stockTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.stockTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Stock", true));
             this.stockTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.stockTextBox.Location = new System.Drawing.Point(184, 208);
@@ -374,12 +390,40 @@ namespace shoes.AppForms
             // 
             // deskTextBox
             // 
+            this.deskTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.deskTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "Desk", true));
             this.deskTextBox.Font = new System.Drawing.Font("Times New Roman", 9.25F);
             this.deskTextBox.Location = new System.Drawing.Point(184, 66);
             this.deskTextBox.Name = "deskTextBox";
             this.deskTextBox.Size = new System.Drawing.Size(121, 22);
             this.deskTextBox.TabIndex = 17;
+            // 
+            // imageGroupBox
+            // 
+            this.imageGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageGroupBox.Controls.Add(this.productPictureBox);
+            this.imageGroupBox.Controls.Add(this.loadImageButton);
+            this.imageGroupBox.Controls.Add(this.clearImageButton);
+            this.imageGroupBox.Location = new System.Drawing.Point(80, 264);
+            this.imageGroupBox.Name = "imageGroupBox";
+            this.imageGroupBox.Size = new System.Drawing.Size(225, 177);
+            this.imageGroupBox.TabIndex = 23;
+            this.imageGroupBox.TabStop = false;
+            this.imageGroupBox.Text = "Изображение товара";
+            // 
+            // productPictureBox
+            // 
+            this.productPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.productPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.productPictureBox.Location = new System.Drawing.Point(10, 20);
+            this.productPictureBox.Name = "productPictureBox";
+            this.productPictureBox.Size = new System.Drawing.Size(200, 120);
+            this.productPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.productPictureBox.TabIndex = 25;
+            this.productPictureBox.TabStop = false;
             // 
             // loadImageButton
             // 
@@ -401,30 +445,6 @@ namespace shoes.AppForms
             this.clearImageButton.Text = "Очистить";
             this.clearImageButton.Click += new System.EventHandler(this.clearImageButton_Click);
             // 
-            // productPictureBox
-            // 
-            this.productPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.productPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.productPictureBox.Location = new System.Drawing.Point(10, 20);
-            this.productPictureBox.Name = "productPictureBox";
-            this.productPictureBox.Size = new System.Drawing.Size(200, 120);
-            this.productPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.productPictureBox.TabIndex = 25;
-            this.productPictureBox.TabStop = false;
-            // 
-            // imageGroupBox
-            // 
-            this.imageGroupBox.Controls.Add(this.productPictureBox);
-            this.imageGroupBox.Controls.Add(this.loadImageButton);
-            this.imageGroupBox.Controls.Add(this.clearImageButton);
-            this.imageGroupBox.Location = new System.Drawing.Point(80, 264);
-            this.imageGroupBox.Name = "imageGroupBox";
-            this.imageGroupBox.Size = new System.Drawing.Size(225, 177);
-            this.imageGroupBox.TabIndex = 23;
-            this.imageGroupBox.TabStop = false;
-            this.imageGroupBox.Text = "Изображение товара";
-            // 
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
@@ -445,7 +465,7 @@ namespace shoes.AppForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 430);
+            this.ClientSize = new System.Drawing.Size(376, 562);
             this.Controls.Add(this.formSplitContainer);
             this.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -464,8 +484,8 @@ namespace shoes.AppForms
             ((System.ComponentModel.ISupportInitialize)(this.headerLogoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapkin_DemoShoesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
             this.imageGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }

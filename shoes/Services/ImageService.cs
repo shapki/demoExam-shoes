@@ -1,20 +1,22 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace shoes.Services
 {
     public static class ImageService
     {
-        private static readonly string ProductImagesFolder = "Resources";
+        private static readonly string ResourcesFolder = "Resources";
 
         /// <summary>
-        /// PKGH: Получение полного пути к папке с изображениями товаров
+        /// PKGH: Получение полного пути к папке Resources
         /// </summary>
-        public static string GetImagesFolderPath()
+        public static string GetResourcesFolderPath()
         {
-            string folderPath = Path.Combine(Application.StartupPath, ProductImagesFolder);
+            string folderPath = Path.Combine(Application.StartupPath, ResourcesFolder);
 
             if (!Directory.Exists(folderPath))
             {
@@ -25,86 +27,7 @@ namespace shoes.Services
         }
 
         /// <summary>
-        /// PKGH: Загрузка изображения товара
-        /// </summary>
-        public static Image LoadProductImage(string imageFileName)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(imageFileName))
-                    return Properties.Resources.picture;
-
-                string imagePath = Path.Combine(GetImagesFolderPath(), imageFileName);
-
-                if (File.Exists(imagePath))
-                {
-                    return Image.FromFile(imagePath);
-                }
-                else
-                {
-                    return Properties.Resources.picture;
-                }
-            }
-            catch
-            {
-                return Properties.Resources.picture;
-            }
-        }
-
-        /// <summary>
-        /// PKGH: Сохранение изображения товара
-        /// </summary>
-        public static string SaveProductImage(string tempImagePath, string oldImageFileName = null)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(oldImageFileName))
-                {
-                    DeleteProductImage(oldImageFileName);
-                }
-
-                string extension = Path.GetExtension(tempImagePath);
-                string newFileName = $"{Guid.NewGuid():N}{extension}";
-                string newImagePath = Path.Combine(GetImagesFolderPath(), newFileName);
-
-                File.Copy(tempImagePath, newImagePath, true);
-
-                return newFileName;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Ошибка при сохранении изображения: {ex.Message}");
-            }
-        }
-
-        /// <summary>
-        /// PKGH: Удаление изображения товара
-        /// </summary>
-        public static bool DeleteProductImage(string imageFileName)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(imageFileName))
-                    return true;
-
-                string imagePath = Path.Combine(GetImagesFolderPath(), imageFileName);
-
-                if (File.Exists(imagePath))
-                {
-                    File.Delete(imagePath);
-                    return true;
-                }
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// PKGH: Открытие диалога выбора изображения
+        /// PKGH: Открытие окна выбора изображения
         /// </summary>
         public static string OpenImageDialog()
         {
@@ -123,6 +46,132 @@ namespace shoes.Services
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// PKGH: Загрузка изображения товара из папки Resources
+        /// </summary>
+        public static Image LoadProductImage(string imageFileName)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imageFileName))
+                    return Properties.Resources.picture;
+
+                string imagePath = Path.Combine(GetResourcesFolderPath(), imageFileName);
+
+                if (File.Exists(imagePath))
+                {
+                    using (var tempImage = Image.FromFile(imagePath))
+                    {
+                        return new Bitmap(tempImage);
+                    }
+                }
+                else
+                {
+                    return Properties.Resources.picture;
+                }
+            }
+            catch
+            {
+                return Properties.Resources.picture;
+            }
+        }
+
+        /// <summary>
+        /// PKGH: Сохранение изображения товара в папку Resources
+        /// </summary>
+        public static string SaveProductImage(string tempImagePath, string oldImageFileName = null)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(oldImageFileName))
+                {
+                    DeleteProductImage(oldImageFileName);
+                }
+
+                if (!File.Exists(tempImagePath))
+                {
+                    throw new FileNotFoundException($"Исходный файл не найден: {tempImagePath}");
+                }
+
+                string extension = Path.GetExtension(tempImagePath).ToLower();
+                string newFileName = $"{Guid.NewGuid():N}{extension}";
+                string newImagePath = Path.Combine(GetResourcesFolderPath(), newFileName);
+
+                File.Copy(tempImagePath, newImagePath, true);
+
+                return newFileName;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ошибка при сохранении изображения: {ex.Message}", ex);
+            }
+        }
+
+        /// <summary>
+        /// PKGH: Удаление изображения товара из папки Resources
+        /// </summary>
+        public static bool DeleteProductImage(string imageFileName)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imageFileName))
+                    return true;
+
+                string imagePath = Path.Combine(GetResourcesFolderPath(), imageFileName);
+
+                if (File.Exists(imagePath))
+                {
+                    File.Delete(imagePath);
+                    return true;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при удалении изображения {imageFileName}: {ex.Message}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// PKGH: Проверка допустимых форматов изображений
+        /// </summary>
+        public static bool IsValidImageFormat(string filePath)
+        {
+            var validExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            string extension = Path.GetExtension(filePath).ToLower();
+            return validExtensions.Contains(extension);
+        }
+
+        /// <summary>
+        /// PKGH: Получение списка всех изображений в папке Resources
+        /// </summary>
+        public static List<string> GetAllProductImages()
+        {
+            try
+            {
+                string resourcesPath = GetResourcesFolderPath();
+                if (Directory.Exists(resourcesPath))
+                {
+                    var imageExtensions = new[] { "*.jpg", "*.jpeg", "*.png", "*.gif", "*.bmp" };
+                    var imageFiles = new List<string>();
+
+                    foreach (var extension in imageExtensions)
+                    {
+                        imageFiles.AddRange(Directory.GetFiles(resourcesPath, extension));
+                    }
+
+                    return imageFiles.Select(Path.GetFileName).ToList();
+                }
+                return new List<string>();
+            }
+            catch
+            {
+                return new List<string>();
+            }
         }
     }
 }

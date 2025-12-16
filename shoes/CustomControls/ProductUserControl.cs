@@ -37,12 +37,18 @@ namespace shoes.CustomControls
         {
             try
             {
+                if (productPictureBox.Image != null)
+                {
+                    productPictureBox.Image.Dispose();
+                    productPictureBox.Image = null;
+                }
+
                 if (!string.IsNullOrEmpty(_product.Photo))
                 {
-                    string imagePath = Path.Combine(Application.StartupPath, "Resources", _product.Photo);
-                    if (File.Exists(imagePath))
+                    Image loadedImage = ImageService.LoadProductImage(_product.Photo);
+                    if (loadedImage != null)
                     {
-                        productPictureBox.Image = Image.FromFile(imagePath);
+                        productPictureBox.Image = loadedImage;
                     }
                     else
                     {
@@ -58,6 +64,19 @@ namespace shoes.CustomControls
             {
                 productPictureBox.Image = Properties.Resources.picture;
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (productPictureBox.Image != null)
+                {
+                    productPictureBox.Image.Dispose();
+                    productPictureBox.Image = null;
+                }
+            }
+            base.Dispose(disposing);
         }
 
         private void CheckUserRole()

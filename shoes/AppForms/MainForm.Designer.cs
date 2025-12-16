@@ -80,7 +80,7 @@ namespace shoes.AppForms
             // 
             this.formSplitContainer.Panel2.Controls.Add(this.contentFlowLayoutPanel);
             this.formSplitContainer.Size = new System.Drawing.Size(678, 485);
-            this.formSplitContainer.SplitterDistance = 96;
+            this.formSplitContainer.SplitterDistance = 104;
             this.formSplitContainer.TabIndex = 2;
             // 
             // ordersButton
@@ -89,7 +89,7 @@ namespace shoes.AppForms
             this.ordersButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.ordersButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ordersButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.ordersButton.Location = new System.Drawing.Point(209, 72);
+            this.ordersButton.Location = new System.Drawing.Point(209, 77);
             this.ordersButton.Name = "ordersButton";
             this.ordersButton.Size = new System.Drawing.Size(60, 24);
             this.ordersButton.TabIndex = 10;
@@ -104,7 +104,7 @@ namespace shoes.AppForms
             this.addProductButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.addProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addProductButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.addProductButton.Location = new System.Drawing.Point(122, 72);
+            this.addProductButton.Location = new System.Drawing.Point(122, 77);
             this.addProductButton.Name = "addProductButton";
             this.addProductButton.Size = new System.Drawing.Size(81, 24);
             this.addProductButton.TabIndex = 9;
@@ -121,7 +121,7 @@ namespace shoes.AppForms
             this.filterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterComboBox.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.filterComboBox.FormattingEnabled = true;
-            this.filterComboBox.Location = new System.Drawing.Point(275, 72);
+            this.filterComboBox.Location = new System.Drawing.Point(275, 77);
             this.filterComboBox.Name = "filterComboBox";
             this.filterComboBox.Size = new System.Drawing.Size(114, 23);
             this.filterComboBox.TabIndex = 8;
@@ -134,7 +134,7 @@ namespace shoes.AppForms
             this.sortButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.sortButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.sortButton.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.sortButton.Location = new System.Drawing.Point(395, 72);
+            this.sortButton.Location = new System.Drawing.Point(395, 77);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(171, 24);
             this.sortButton.TabIndex = 7;
@@ -148,7 +148,7 @@ namespace shoes.AppForms
             this.searchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchTextBox.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.searchTextBox.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.searchTextBox.Location = new System.Drawing.Point(572, 72);
+            this.searchTextBox.Location = new System.Drawing.Point(572, 77);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 23);
             this.searchTextBox.TabIndex = 6;
@@ -220,7 +220,7 @@ namespace shoes.AppForms
             this.headerSubtitleLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.headerSubtitleLabel.Location = new System.Drawing.Point(77, 43);
             this.headerSubtitleLabel.Name = "headerSubtitleLabel";
-            this.headerSubtitleLabel.Size = new System.Drawing.Size(52, 16);
+            this.headerSubtitleLabel.Size = new System.Drawing.Size(51, 16);
             this.headerSubtitleLabel.TabIndex = 2;
             this.headerSubtitleLabel.Text = "Товары";
             // 
@@ -232,7 +232,7 @@ namespace shoes.AppForms
             this.contentFlowLayoutPanel.Font = new System.Drawing.Font("Times New Roman", 8.25F);
             this.contentFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.contentFlowLayoutPanel.Name = "contentFlowLayoutPanel";
-            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 385);
+            this.contentFlowLayoutPanel.Size = new System.Drawing.Size(678, 377);
             this.contentFlowLayoutPanel.TabIndex = 0;
             // 
             // shapkin_DemoShoesDataSet
