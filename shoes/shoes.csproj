@@ -198,7 +198,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Docs\###Надо.txt" />
     <Content Include="Docs\db_schema.png" />
     <Content Include="Docs\script.sql" />
     <Content Include="Resources\Icon.ico">
