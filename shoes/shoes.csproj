@@ -167,10 +167,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Docs\alg_razr_pr_auth.pdf" />
-    <None Include="Docs\alg_razr_pr_auth.vsd" />
-    <None Include="Docs\alg_razr_pr_order.pdf" />
-    <None Include="Docs\alg_razr_pr_order.vsd" />
+    <None Include="Docs\alg_razr_pr.pdf" />
+    <None Include="Docs\alg_razr_pr.vsd" />
+    <None Include="Docs\debug.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

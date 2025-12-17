@@ -58,7 +58,7 @@ namespace shoes.CustomControls
             {
                 if (_order.Office != null)
                 {
-                    return $"{_order.Office.Address} (индекс: {_order.Office.PostIndex})";
+                    return $"{_order.Office.Address}";
                 }
 
                 using (var context = Program.context)
@@ -66,7 +66,7 @@ namespace shoes.CustomControls
                     var office = context.Office.FirstOrDefault(o => o.IdOffice == officeId);
                     if (office != null)
                     {
-                        return $"{office.Address} (индекс: {office.PostIndex})";
+                        return $"{office.Address}";
                     }
                 }
             }

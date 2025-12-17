@@ -47,6 +47,7 @@ namespace shoes.AppForms
                 LoadComboBoxData();
                 BindProductToControls();
                 LoadProductImage();
+                CheckProductOrders();
             }
             else
             {
@@ -57,6 +58,15 @@ namespace shoes.AppForms
                 saveButton.Size = new System.Drawing.Size(225, 24);
                 _product = new Product();
                 LoadComboBoxData();
+            }
+        }
+
+        private void CheckProductOrders()
+        {
+            if (_isEditMode && _product != null)
+            {
+                bool hasOrders = Program.context.OrderProduct.Any(op => op.ProductId == _product.IdProduct);
+                deleteProductButton.Enabled = !hasOrders;
             }
         }
 
